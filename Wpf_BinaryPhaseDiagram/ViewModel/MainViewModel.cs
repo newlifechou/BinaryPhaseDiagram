@@ -33,7 +33,7 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
             ////    // Code runs "for real"
             ////}
             bpdOp = new BPDOperation("Images");
-            BPDList = new ObservableCollection<string>(bpdOp.GetAllData());
+            BPDList = new ObservableCollection<BPDDataItem>(bpdOp.GetAllData());
         }
         private BPDOperation bpdOp;
 
@@ -51,7 +51,7 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
         }
 
         //存放搜索出来的相图数据项结果
-        public ObservableCollection<string> BPDList { get; set; }
+        public ObservableCollection<BPDDataItem> BPDList { get; set; }
 
         //搜索用的两个元素
         private string elementA;
