@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:Wpf_BinaryPhaseDiagram.XamlResources">
+    <!--这里主要存放界面显示用的文字，试图在多语言之间进行切换-->
+    <sys:String x:Key="MainWindowTitleString">Binary Phase Diagram Program</sys:String>
+    <sys:String x:Key="SearchPanelTitleString">Search Panel</sys:String>
+    <sys:String x:Key="ElementAString">Element A</sys:String>
+    <sys:String x:Key="ElementBString">Element B</sys:String>
+    <sys:String x:Key="SearchButtonString">Search It Now!</sys:String>
+    <sys:String x:Key="SearchAllButtonString">Show All</sys:String>
+</ResourceDictionary>

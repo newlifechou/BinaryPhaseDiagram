@@ -3,26 +3,32 @@
                     xmlns:local="clr-namespace:Wpf_BinaryPhaseDiagram.Skins">
     <!--这里是整个工程的公共使用资源定义-->
     <Style x:Key="TextBlockStyle" TargetType="TextBlock">
-        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Margin" Value="0,5,5,5"/>
         <Setter Property="Padding" Value="5"/>
     </Style>
     <Style x:Key="TextBoxStyle" TargetType="TextBox">
-        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Margin" Value="0,5"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
     </Style>
     <Style x:Key="ButtonStyle" TargetType="Button">
-        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Margin" Value="0,5"/>
         <Setter Property="Padding" Value="5 10 5 10"/>
     </Style>
     <Style x:Key="TitlteTextBlockStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="FontSize" Value="25"/>
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Foreground" Value="#FF316EA6"/>
-        <Setter Property="Margin" Value="0,8,0,5"/>
+        <Setter Property="Margin" Value="0,0,0,5"/>
+        <Setter Property="FontWeight" Value="Normal"/>
     </Style>
-    
+    <Style x:Key="MainAreaTitleStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="LightSteelBlue"/>
+    </Style>
     <Thickness x:Key="Thickness5">5</Thickness>
     <Thickness x:Key="Thickness10">10</Thickness>
     <SolidColorBrush x:Key="BackgroundBrush" Color="#FFE3E3E3"/>

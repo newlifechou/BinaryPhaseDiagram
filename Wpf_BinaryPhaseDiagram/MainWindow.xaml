@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_BinaryPhaseDiagram"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen"
+        Title="{DynamicResource MainWindowTitleString}" Height="600" Width="800" WindowStartupLocation="CenterScreen"
         DataContext="{Binding Path=Main,Source={StaticResource Locator}}" Background="LightBlue"
         WindowState="Maximized" MinWidth="800" MinHeight="600" Icon="increase.png">
-    <Grid Margin="5,0">
+    <Grid Margin="5,0,5,5">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
@@ -33,14 +33,14 @@
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Search Panel" Style="{StaticResource TitlteTextBlockStyle}" Grid.ColumnSpan="2"/>
-                <TextBlock Text="Element A" Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockStyle}"/>
-                <TextBlock Text="Element B" Grid.Row="2" Grid.Column="0"  Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock Text="{StaticResource SearchPanelTitleString}" Style="{StaticResource TitlteTextBlockStyle}" Grid.ColumnSpan="2"/>
+                <TextBlock Text="{StaticResource ElementAString}" Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock Text="{StaticResource ElementBString}" Grid.Row="2" Grid.Column="0"  Style="{StaticResource TextBlockStyle}"/>
                 <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Text="{Binding ElementA,UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Text="{Binding ElementB,UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Content="Search It!" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"
+                <Button Content="{StaticResource SearchButtonString}" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"
         				Command="{Binding SearchResultCommand}"/>
-                <Button Content="Show All" Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"
+                <Button Content="{StaticResource SearchButtonString}" Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"
                         Command="{Binding ShowAllCommand}"/>
                 <ListBox  x:Name="lstBPD" Grid.Row="5" Grid.ColumnSpan="2"  ItemsSource="{Binding BPDList}">
                     <ListBox.ItemContainerStyle>
@@ -48,6 +48,10 @@
                             <Setter Property="FontSize" Value="16"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="FontSize" Value="20"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="true">
+                                    <Setter Property="Foreground" Value="Blue"/>
                                     <Setter Property="FontSize" Value="25"/>
                                 </Trigger>
                             </Style.Triggers>
@@ -66,14 +70,30 @@
             </Grid>
         </Border>
         <Border Grid.Column="1" Background="{DynamicResource BackgroundBrush}"
-                Margin="{DynamicResource Thickness5}" Padding="{DynamicResource Thickness5}">
-            <Grid>
-                <Image Source="{Binding SelectedItem.BPDName, Converter={StaticResource ImagePathCt}, ElementName=lstBPD}" Stretch="Uniform" />
+                Margin="{DynamicResource Thickness5}">
+            <Grid DataContext="{Binding ElementName=lstBPD,Path=SelectedItem}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Style="{DynamicResource MainAreaTitleStyle}" >
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0}[{1}]">
+                            <Binding Path="BPDName" Converter="{StaticResource ImageNameCt}"/>
+                            <Binding Path="FileCreationTime" StringFormat="{}{0:d}"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+                <Grid Grid.Row="1" Margin="{DynamicResource Thickness5}">
+                    <Image Source="{Binding BPDName, Converter={StaticResource ImagePathCt}}" Stretch="Uniform"/>
+                </Grid>
             </Grid>
         </Border>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right">
-            <TextBlock Text="100%"/>
-            <Slider Width="100" Maximum="300" Minimum="50" Value="100"/>
+        <TextBlock Text="Copyright xs.zhou@cdpmi 2015" Grid.Row="1"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Slider x:Name="sliderScale" Width="100" Maximum="300" Minimum="50" Value="100" IsSnapToTickEnabled="True"/>
+            <TextBlock Text="{Binding ElementName=sliderScale,Path=Value,StringFormat={}{0}%}"/>
+            <CheckBox IsChecked="True" Content="Show Guides"/>
         </StackPanel>
     </Grid>
 </Window>
