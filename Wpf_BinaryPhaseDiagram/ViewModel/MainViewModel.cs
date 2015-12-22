@@ -1,4 +1,7 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using System.Collections.ObjectModel;
+using Wpf_BinaryPhaseDiagram.Model;
 
 namespace Wpf_BinaryPhaseDiagram.ViewModel
 {
@@ -30,5 +33,46 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
             ////    // Code runs "for real"
             ////}
         }
+        //公开属性
+        //当前的图片
+        private string currentImage;
+        public string CurrentImage
+        {
+            get { return currentImage; }
+            set
+            {
+                currentImage = value;
+                RaisePropertyChanged(() => CurrentImage);
+            }
+        }
+
+        //存放搜索出来的相图数据项结果
+        public ObservableCollection<BinaryPhaseDataItem> BinaryPhaseList { get; set; }
+
+        //搜索用的两个元素
+        private string elementA;
+        public string ElementA
+        {
+            get { return elementA; }
+            set
+            {
+                elementA = value;
+                RaisePropertyChanged(() => ElementA);
+            }
+        }
+        private string elementB;
+        public string ElementB
+        {
+            get { return elementB; }
+            set
+            {
+                elementB = value;
+                RaisePropertyChanged(() => ElementB);
+            }
+        }
+
+        //公开的命令
+        public RelayCommand SearchResultCommand { get; set; }
+
     }
 }
