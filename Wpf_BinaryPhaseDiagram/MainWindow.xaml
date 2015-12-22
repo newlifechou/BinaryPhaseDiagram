@@ -6,14 +6,38 @@
         xmlns:local="clr-namespace:Wpf_BinaryPhaseDiagram"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen"
-        DataContext="{Binding Path=Locator,Source={StaticResource Locator}}">
-    <Grid>
+        DataContext="{Binding Path=Main,Source={StaticResource Locator}}" Background="LightBlue">
+    <Grid  Margin="10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Element A" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock Text="Element B" Grid.Row="1" Grid.Column="0"  Style="{StaticResource TextBlockStyle}"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
+                    <Button Content="Search It!" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <ListBox Margin="5"/>
+                </Grid>
+            </Grid>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -21,7 +45,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0"  Margin="5" Background="Wheat">
-                <Image Source="{Binding Path=CurrentImage}" Stretch="Uniform"/>
+                <Image Source="{Binding Path=CurrentImage,Converter={StaticResource ImagePathCt}}" Stretch="Uniform"/>
             </Grid>
             <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Right" Margin="5">
                 <TextBlock Text="100%"/>

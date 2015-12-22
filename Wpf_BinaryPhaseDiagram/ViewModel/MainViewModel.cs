@@ -1,5 +1,6 @@
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+//注意这里需要引用CommandWpf，这是mvvmlight在WPF项目当中的一个要求
+using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
 using Wpf_BinaryPhaseDiagram.Model;
 
@@ -32,6 +33,7 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+            CurrentImage = "Ac-B.jpg";
         }
         //公开属性
         //当前的图片
