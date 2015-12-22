@@ -89,7 +89,7 @@
                 </Grid>
             </Grid>
         </Border>
-        <TextBlock Text="Copyright xs.zhou@cdpmi 2015" Grid.Row="1"/>
+        <TextBlock Text="made by xs.zhou@cdpmi 2015" Grid.Row="1"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Slider x:Name="sliderScale" Width="100" Maximum="300" Minimum="50" Value="100" IsSnapToTickEnabled="True"/>
             <TextBlock Text="{Binding ElementName=sliderScale,Path=Value,StringFormat={}{0}%}"/>
