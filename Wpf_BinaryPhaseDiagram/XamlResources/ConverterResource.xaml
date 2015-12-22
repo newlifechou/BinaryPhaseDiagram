@@ -4,4 +4,5 @@
                     xmlns:ct="clr-namespace:Wpf_BinaryPhaseDiagram.Converter"
                     >
     <ct:ImagePathConverter x:Key="ImagePathCt"/>
+    <ct:ImageNameConverter x:Key="ImageNameCt"/>
 </ResourceDictionary>

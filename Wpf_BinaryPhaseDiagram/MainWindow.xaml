@@ -40,7 +40,7 @@
                     <Button Content="Search It!" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"/>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <ListBox  x:Name="lstBPD" Margin="5" ItemsSource="{Binding Path=BPDList}" DisplayMemberPath="BPDName">
+                    <ListBox  x:Name="lstBPD" Margin="5" ItemsSource="{Binding Path=BPDList}">
                         
                     </ListBox>
                 </Grid>
@@ -52,7 +52,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Background="Gray" Margin="10">
-                <Image Source="{Binding  ElementName=lstBPD,Path=SelectedItem.ImagePath}" Stretch="Uniform" />
+                <Image Source="{Binding  ElementName=lstBPD,Path=SelectedItem.Text,Converter={StaticResource ImageNameCt}}" Stretch="Uniform" />
             </Grid>
         </Grid>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="5">
