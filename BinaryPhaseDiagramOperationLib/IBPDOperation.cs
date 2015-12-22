@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BinaryPhaseDiagramOperationLib
 {
-    public class Class1
+    public interface IBPDOperation
     {
+        List<BPDDataItem> GetAllData();
+        List<BPDDataItem> GetData(string elementA, string elementB);
     }
 }
