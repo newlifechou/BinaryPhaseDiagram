@@ -7,61 +7,53 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen"
         DataContext="{Binding Path=Main,Source={StaticResource Locator}}" Background="LightBlue"
-        WindowState="Maximized" MinWidth="800" MinHeight="600">
-    <Grid>
+        WindowState="Maximized" MinWidth="800" MinHeight="600" Icon="increase.png">
+    <Grid Margin="5,0">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0"  Background="Wheat">
+        <Border BorderBrush="#FFF7F7F7" BorderThickness="1" CornerRadius="10" Background="#FFE3E3E3" Margin="{DynamicResource Thickness5}" Padding="{DynamicResource Thickness5}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Element A" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextBlockStyle}"/>
-                    <TextBlock Text="Element B" Grid.Row="1" Grid.Column="0"  Style="{StaticResource TextBlockStyle}"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}"/>
-                    <Button Content="Search It!" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"/>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <ListBox  x:Name="lstBPD" Margin="5" ItemsSource="{Binding Path=BPDList}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Path=BPDName,Converter={StaticResource ImageNameCt}}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                </Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Search Panel" Style="{StaticResource TitlteTextBlockStyle}" Grid.ColumnSpan="2"/>
+                <TextBlock Text="Element A" Grid.Row="1" Grid.Column="0" Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock Text="Element B" Grid.Row="2" Grid.Column="0"  Style="{StaticResource TextBlockStyle}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Text="{Binding ElementA}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Text="{Binding ElementB}"/>
+                <Button Content="Search It!" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"
+        				Command="{Binding SearchResultCommand}"/>
+                <ListBox  x:Name="lstBPD" Grid.Row="4" Grid.ColumnSpan="2" Margin="5" ItemsSource="{Binding BPDList}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding BPDName, Converter={StaticResource ImageNameCt}}" FontSize="16" Padding="0 5"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </Grid>
-        </Grid>
-        <Grid Grid.Column="1" Background="Wheat">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Background="Gray" Margin="10">
-                <Image Source="{Binding  ElementName=lstBPD,Path=SelectedItem.BPDName,Converter={StaticResource ImagePathCt}}" Stretch="Uniform" />
+        </Border>
+        <Border Grid.Column="1" Background="#FFE4E4E4" Margin="{DynamicResource Thickness5}" Padding="{DynamicResource Thickness5}">
+            <Grid>
+                <Image Source="{Binding SelectedItem.BPDName, Converter={StaticResource ImagePathCt}, ElementName=lstBPD}" Stretch="Uniform" />
             </Grid>
-        </Grid>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="5">
+        </Border>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Right">
             <TextBlock Text="100%"/>
             <Slider Width="100" Maximum="300" Minimum="50" Value="100"/>
         </StackPanel>

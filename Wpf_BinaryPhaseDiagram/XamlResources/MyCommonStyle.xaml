@@ -8,9 +8,18 @@
     <Style x:Key="TextBoxStyle" TargetType="TextBox">
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Padding" Value="5"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
     </Style>
     <Style x:Key="ButtonStyle" TargetType="Button">
         <Setter Property="Margin" Value="5"/>
-        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Padding" Value="5 10 5 10"/>
     </Style>
+    <Style x:Key="TitlteTextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Foreground" Value="#FF316EA6"/>
+        <Setter Property="Margin" Value="0,8,0,5"/>
+    </Style>
+    <Thickness x:Key="Thickness5">5</Thickness>
 </ResourceDictionary>

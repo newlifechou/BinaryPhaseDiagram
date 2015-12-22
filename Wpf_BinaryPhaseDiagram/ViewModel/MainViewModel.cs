@@ -3,6 +3,8 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
 using BinaryPhaseDiagramOperationLib;
+using GalaSoft.MvvmLight.Messaging;
+
 namespace Wpf_BinaryPhaseDiagram.ViewModel
 {
     /// <summary>
@@ -34,6 +36,12 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
             ////}
             bpdOp = new BPDOperation("Images");
             BPDList = new ObservableCollection<BPDDataItem>(bpdOp.GetAllData());
+
+            SearchResultCommand = new RelayCommand(() =>
+              {
+                  BPDList = new ObservableCollection<BPDDataItem>(bpdOp.GetData(ElementA, ElementB));
+                  Messenger.Default.Send<object>(null, "SearchFinished");
+              });
         }
         private BPDOperation bpdOp;
 
@@ -51,7 +59,19 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
         }
 
         //存放搜索出来的相图数据项结果
-        public ObservableCollection<BPDDataItem> BPDList { get; set; }
+        private ObservableCollection<BPDDataItem> bpdList;
+        public ObservableCollection<BPDDataItem> BPDList
+        {
+            get
+            {
+                return bpdList;
+            }
+            set
+            {
+                bpdList = value;
+                RaisePropertyChanged(() => BPDList);
+            }
+        }
 
         //搜索用的两个元素
         private string elementA;

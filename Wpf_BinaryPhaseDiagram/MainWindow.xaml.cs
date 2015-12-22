@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,18 @@ namespace Wpf_BinaryPhaseDiagram
         public MainWindow()
         {
             InitializeComponent();
+            Messenger.Default.Register<object>(this,"SearchFinished", obj =>
+            {
+                if (lstBPD.Items.Count > 0)
+                {
+                    lstBPD.SelectedIndex = 0;
+                }
+            });
+
+            this.Unloaded += (s, e) =>
+            {
+                Messenger.Default.Unregister(this);
+            };
         }
     }
 }
