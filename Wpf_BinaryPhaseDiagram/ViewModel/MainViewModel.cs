@@ -2,8 +2,7 @@ using GalaSoft.MvvmLight;
 //注意这里需要引用CommandWpf，这是mvvmlight在WPF项目当中的一个要求
 using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
-using Wpf_BinaryPhaseDiagram.Model;
-
+using BinaryPhaseDiagramOperationLib;
 namespace Wpf_BinaryPhaseDiagram.ViewModel
 {
     /// <summary>
@@ -33,9 +32,11 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
-            CurrentImage = "Ac-B.jpg";
-
+            bpdOp = new BPDOperation("Images");
+            BPDList = new ObservableCollection<BPDDataItem>(bpdOp.GetAllData());
         }
+        private BPDOperation bpdOp;
+
         //公开属性
         //当前的图片
         private string currentImage;
@@ -50,7 +51,7 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
         }
 
         //存放搜索出来的相图数据项结果
-        public ObservableCollection<BinaryPhaseDataItem> BinaryPhaseList { get; set; }
+        public ObservableCollection<BPDDataItem> BPDList { get; set; }
 
         //搜索用的两个元素
         private string elementA;

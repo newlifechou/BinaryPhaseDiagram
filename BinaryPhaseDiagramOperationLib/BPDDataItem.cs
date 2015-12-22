@@ -14,7 +14,7 @@ namespace BinaryPhaseDiagramOperationLib
         //相图名称
         public string BPDName { get; set; }
         //相图图片名称
-        public string ImageName { get; set; }
+        public string ImagePath { get; set; }
         //相图文件创建日期
         public DateTime FileCreationTime { get; set; }
     }
