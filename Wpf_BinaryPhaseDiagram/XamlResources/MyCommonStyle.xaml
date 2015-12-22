@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Wpf_BinaryPhaseDiagram.Skins">
+    <!--这里是整个工程的公共使用资源定义-->
     <Style x:Key="TextBlockStyle" TargetType="TextBlock">
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Padding" Value="5"/>
@@ -21,5 +22,8 @@
         <Setter Property="Foreground" Value="#FF316EA6"/>
         <Setter Property="Margin" Value="0,8,0,5"/>
     </Style>
+    
     <Thickness x:Key="Thickness5">5</Thickness>
+    <Thickness x:Key="Thickness10">10</Thickness>
+    <SolidColorBrush x:Key="BackgroundBrush" Color="#FFE3E3E3"/>
 </ResourceDictionary>

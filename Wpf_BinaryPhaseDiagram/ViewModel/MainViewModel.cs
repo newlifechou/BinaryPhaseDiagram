@@ -36,10 +36,26 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
             ////}
             bpdOp = new BPDOperation("Images");
             BPDList = new ObservableCollection<BPDDataItem>(bpdOp.GetAllData());
+            ResultCount = BPDList.Count;
 
             SearchResultCommand = new RelayCommand(() =>
               {
                   BPDList = new ObservableCollection<BPDDataItem>(bpdOp.GetData(ElementA, ElementB));
+                  ResultCount = BPDList.Count;
+                  Messenger.Default.Send<object>(null, "SearchFinished");
+              }, () =>
+              {
+                  if (string.IsNullOrEmpty(ElementA) && string.IsNullOrEmpty(ElementB))
+                  {
+                      return false;
+                  }
+                  return true;
+              });
+
+            ShowAllCommand = new RelayCommand(() =>
+              {
+                  BPDList = new ObservableCollection<BPDDataItem>(bpdOp.GetAllData());
+                  ResultCount = BPDList.Count;
                   Messenger.Default.Send<object>(null, "SearchFinished");
               });
         }
@@ -52,10 +68,7 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
         {
             get { return currentImage; }
             set
-            {
-                currentImage = value;
-                RaisePropertyChanged(() => CurrentImage);
-            }
+            { currentImage = value; RaisePropertyChanged(() => CurrentImage); }
         }
 
         //存放搜索出来的相图数据项结果
@@ -67,10 +80,7 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
                 return bpdList;
             }
             set
-            {
-                bpdList = value;
-                RaisePropertyChanged(() => BPDList);
-            }
+            { bpdList = value; RaisePropertyChanged(() => BPDList); }
         }
 
         //搜索用的两个元素
@@ -79,24 +89,27 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
         {
             get { return elementA; }
             set
-            {
-                elementA = value;
-                RaisePropertyChanged(() => ElementA);
-            }
+            { elementA = value; RaisePropertyChanged(() => ElementA); }
         }
         private string elementB;
         public string ElementB
         {
             get { return elementB; }
             set
-            {
-                elementB = value;
-                RaisePropertyChanged(() => ElementB);
-            }
+            { elementB = value; RaisePropertyChanged(() => ElementB); }
         }
+        private int resultCount;
+
+        public int ResultCount
+        {
+            get { return resultCount; }
+            set { resultCount = value; RaisePropertyChanged(() => ResultCount); }
+        }
+
+
 
         //公开的命令
         public RelayCommand SearchResultCommand { get; set; }
-
+        public RelayCommand ShowAllCommand { get; set; }
     }
 }

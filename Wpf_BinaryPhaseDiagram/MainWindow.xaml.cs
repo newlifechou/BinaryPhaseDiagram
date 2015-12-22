@@ -24,18 +24,25 @@ namespace Wpf_BinaryPhaseDiagram
         public MainWindow()
         {
             InitializeComponent();
+
+            SelectTheFirstListBoxItem();
+
             Messenger.Default.Register<object>(this,"SearchFinished", obj =>
             {
-                if (lstBPD.Items.Count > 0)
-                {
-                    lstBPD.SelectedIndex = 0;
-                }
+                SelectTheFirstListBoxItem();
             });
 
             this.Unloaded += (s, e) =>
             {
                 Messenger.Default.Unregister(this);
             };
+        }
+        private void SelectTheFirstListBoxItem()
+        {
+            if (lstBPD.Items.Count > 0)
+            {
+                lstBPD.SelectedIndex = 0;
+            }
         }
     }
 }
