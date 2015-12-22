@@ -34,6 +34,7 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
             ////    // Code runs "for real"
             ////}
             CurrentImage = "Ac-B.jpg";
+
         }
         //公开属性
         //当前的图片
