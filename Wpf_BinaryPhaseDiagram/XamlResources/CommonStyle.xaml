@@ -47,7 +47,7 @@
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="LightSteelBlue"/>
+        <Setter Property="Background" Value="DeepSkyBlue"/>
     </Style>
     <Thickness x:Key="Thickness5">5</Thickness>
     <Thickness x:Key="Thickness10">10</Thickness>
