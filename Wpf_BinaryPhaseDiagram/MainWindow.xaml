@@ -31,7 +31,7 @@
                 </Trigger>
                 <Trigger Property="IsSelected" Value="true">
                     <Setter Property="Foreground" Value="Blue"/>
-                    <Setter Property="FontSize" Value="25"/>
+                    <!--<Setter Property="FontSize" Value="25"/>-->
                 </Trigger>
             </Style.Triggers>
         </Style>
