@@ -8,6 +8,36 @@
         Title="{DynamicResource MainWindowTitleString}" Height="600" Width="800" WindowStartupLocation="CenterScreen"
         DataContext="{Binding Path=Main,Source={StaticResource Locator}}" Background="LightBlue"
         WindowState="Maximized" MinWidth="800" MinHeight="600" Icon="increase.png">
+    <Window.Resources>
+        <Style x:Key="listboxitemStyle" TargetType="ListBoxItem">
+            <Setter Property="FontSize" Value="16"/>
+            <Style.Triggers>
+                <!--设置鼠标划过的动画效果-->
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="25" Duration="0:0:0.3"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize"  Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+                <Trigger Property="IsSelected" Value="true">
+                    <Setter Property="Foreground" Value="Blue"/>
+                    <Setter Property="FontSize" Value="25"/>
+                    
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <Grid Margin="5,0,5,5">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -42,21 +72,7 @@
         				Command="{Binding SearchResultCommand}"/>
                 <Button Content="{StaticResource SearchAllButtonString}" Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"
                         Command="{Binding ShowAllCommand}"/>
-                <ListBox  x:Name="lstBPD" Grid.Row="5" Grid.ColumnSpan="2"  ItemsSource="{Binding BPDList}">
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Setter Property="FontSize" Value="16"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter Property="FontSize" Value="20"/>
-                                </Trigger>
-                                <Trigger Property="IsSelected" Value="true">
-                                    <Setter Property="Foreground" Value="Blue"/>
-                                    <Setter Property="FontSize" Value="25"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
+                <ListBox  x:Name="lstBPD" Grid.Row="5" Grid.ColumnSpan="2"  ItemsSource="{Binding BPDList}" ItemContainerStyle="{StaticResource listboxitemStyle}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -87,7 +103,7 @@
                 <Canvas x:Name="dcDrawingArea" Grid.Row="1" Margin="{DynamicResource Thickness5}"
                         MouseLeftButtonDown="dcDrawingArea_MouseLeftButtonDown" SizeChanged="dcDrawingArea_SizeChanged"
                         Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Border},Path=Background}">
-                    <Image x:Name="image" Source="{Binding BPDName, Converter={StaticResource ImagePathCt}}" Stretch="Uniform"
+                    <Image x:Name="imagePart" Source="{Binding BPDName, Converter={StaticResource ImagePathCt}}" Stretch="Uniform"
                            Width="{Binding ActualWidth, ElementName=dcDrawingArea}"
                            Height="{Binding ActualHeight, ElementName=dcDrawingArea}"/>
                     <Line x:Name="lineHorizon" Y2="1" Stroke="{DynamicResource GuideStrokeBrush}" StrokeDashArray="{DynamicResource StrokeDashDoubleCollection}" />
