@@ -98,7 +98,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Slider x:Name="sliderScale" Width="100" Maximum="300" Minimum="50" Value="100" IsSnapToTickEnabled="True"/>
             <TextBlock Text="{Binding ElementName=sliderScale,Path=Value,StringFormat={}{0}%}"/>
-            <CheckBox x:Name="chkGuideLine" IsChecked="True" Content="Show Guides"/>
+            <CheckBox x:Name="chkGuideLine" IsChecked="True" Content="{StaticResource ShowGuideLine}"/>
         </StackPanel>
     </Grid>
 </Window>

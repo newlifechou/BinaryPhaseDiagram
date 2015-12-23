@@ -9,4 +9,5 @@
     <sys:String x:Key="ElementBString">Element B</sys:String>
     <sys:String x:Key="SearchButtonString">Search It Now!</sys:String>
     <sys:String x:Key="SearchAllButtonString">Show All</sys:String>
+    <sys:String x:Key="ShowGuideLine">Show GuidesLine</sys:String>
 </ResourceDictionary>

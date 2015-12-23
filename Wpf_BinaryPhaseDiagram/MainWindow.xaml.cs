@@ -30,6 +30,7 @@ namespace Wpf_BinaryPhaseDiagram
             Messenger.Default.Register<object>(this, "SearchFinished", obj =>
              {
                  SelectTheFirstListBoxItem();
+                 HideGuideLine();
              });
 
             this.Unloaded += (s, e) =>
