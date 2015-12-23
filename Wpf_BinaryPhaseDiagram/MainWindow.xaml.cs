@@ -27,10 +27,10 @@ namespace Wpf_BinaryPhaseDiagram
 
             SelectTheFirstListBoxItem();
 
-            Messenger.Default.Register<object>(this,"SearchFinished", obj =>
-            {
-                SelectTheFirstListBoxItem();
-            });
+            Messenger.Default.Register<object>(this, "SearchFinished", obj =>
+             {
+                 SelectTheFirstListBoxItem();
+             });
 
             this.Unloaded += (s, e) =>
             {
@@ -43,6 +43,46 @@ namespace Wpf_BinaryPhaseDiagram
             {
                 lstBPD.SelectedIndex = 0;
             }
+        }
+
+        private void dcDrawingArea_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if ((bool)chkGuideLine.IsChecked)
+            {
+                Point mousePosition = e.GetPosition(dcDrawingArea);
+
+                lineHorizon.X1 = 0;
+                lineHorizon.Y1 = mousePosition.Y;
+                lineHorizon.X2 = dcDrawingArea.ActualWidth;
+                lineHorizon.Y2 = mousePosition.Y;
+
+                lineVertical.X1 = mousePosition.X;
+                lineVertical.Y1 = 0;
+                lineVertical.X2 = mousePosition.X;
+                lineVertical.Y2 = dcDrawingArea.ActualHeight;
+            }
+            else
+            {
+                HideGuideLine();
+            }
+        }
+
+        private void dcDrawingArea_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            HideGuideLine();
+        }
+
+        private void HideGuideLine()
+        {
+            lineHorizon.X1 = 0;
+            lineHorizon.Y1 = 0;
+            lineHorizon.X2 = 0;
+            lineHorizon.Y2 = 1;
+
+            lineVertical.X1 = 0;
+            lineVertical.Y1 = 0;
+            lineVertical.X2 = 0;
+            lineVertical.Y2 = 1;
         }
     }
 }

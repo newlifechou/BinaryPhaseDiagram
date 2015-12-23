@@ -31,4 +31,6 @@
     <Thickness x:Key="Thickness5">5</Thickness>
     <Thickness x:Key="Thickness10">10</Thickness>
     <SolidColorBrush x:Key="BackgroundBrush" Color="#FFE3E3E3"/>
+    <SolidColorBrush x:Key="GuideStrokeBrush" Color="Blue"/>
+    <DoubleCollection x:Key="StrokeDashDoubleCollection">1</DoubleCollection>
 </ResourceDictionary>
