@@ -87,5 +87,10 @@ namespace Wpf_BinaryPhaseDiagram
             lineVertical.X2 = 0;
             lineVertical.Y2 = 1;
         }
+
+        private void lstBPD_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            HideGuideLine();
+        }
     }
 }

@@ -92,7 +92,8 @@
         				Command="{Binding SearchResultCommand}"/>
                 <Button Content="{StaticResource SearchAllButtonString}" Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource ButtonStyle}"
                         Command="{Binding ShowAllCommand}"/>
-                <ListBox  x:Name="lstBPD" Grid.Row="5" Grid.ColumnSpan="2"  ItemsSource="{Binding BPDList}" ItemContainerStyle="{StaticResource listboxitemStyle}">
+                <ListBox  x:Name="lstBPD" Grid.Row="5" Grid.ColumnSpan="2"  ItemsSource="{Binding BPDList}"
+                          ItemContainerStyle="{StaticResource listboxitemStyle}" SelectionChanged="lstBPD_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
