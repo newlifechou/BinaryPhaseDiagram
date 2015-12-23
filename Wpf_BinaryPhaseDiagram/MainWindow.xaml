@@ -32,11 +32,31 @@
                 <Trigger Property="IsSelected" Value="true">
                     <Setter Property="Foreground" Value="Blue"/>
                     <Setter Property="FontSize" Value="25"/>
-                    
                 </Trigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
+    
+    <Window.Triggers>
+        <!--当列表项变动的时候，播放图片框动画-->
+        <EventTrigger SourceName="lstBPD" RoutedEvent="ListBox.SelectionChanged">
+            <EventTrigger.Actions>
+                <BeginStoryboard >
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetName="imagePart"
+                                         Storyboard.TargetProperty="(Image.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
+                                         From="0.1" To="1" Duration="0:0:0.5"/>
+                        <DoubleAnimation Storyboard.TargetName="imagePart"
+                                         Storyboard.TargetProperty="(Image.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
+                                         From="0.1" To="1" Duration="0:0:0.5"/>
+                        <DoubleAnimation Storyboard.TargetName="imagePart"
+                                         Storyboard.TargetProperty="Opacity"
+                                         From="0" To="1" Duration="0:0:0.5"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Window.Triggers>
     
     <Grid Margin="5,0,5,5">
         <Grid.RowDefinitions>
@@ -105,7 +125,14 @@
                         Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Border},Path=Background}">
                     <Image x:Name="imagePart" Source="{Binding BPDName, Converter={StaticResource ImagePathCt}}" Stretch="Uniform"
                            Width="{Binding ActualWidth, ElementName=dcDrawingArea}"
-                           Height="{Binding ActualHeight, ElementName=dcDrawingArea}"/>
+                           Height="{Binding ActualHeight, ElementName=dcDrawingArea}"
+                           RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="0.5" ScaleY="0.5"/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
                     <Line x:Name="lineHorizon" Y2="1" Stroke="{DynamicResource GuideStrokeBrush}" StrokeDashArray="{DynamicResource StrokeDashDoubleCollection}" />
                     <Line x:Name="lineVertical" Y2="1" Stroke="{DynamicResource GuideStrokeBrush}" StrokeDashArray="{DynamicResource StrokeDashDoubleCollection}"/>
                 </Canvas>
