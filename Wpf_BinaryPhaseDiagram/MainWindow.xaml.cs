@@ -66,11 +66,13 @@ namespace Wpf_BinaryPhaseDiagram
             {
                 HideGuideLine();
             }
+            e.Handled = true;
         }
 
         private void dcDrawingArea_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             HideGuideLine();
+            e.Handled = true;
         }
 
         private void HideGuideLine()

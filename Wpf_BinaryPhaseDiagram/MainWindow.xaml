@@ -78,14 +78,15 @@
                 </Grid.RowDefinitions>
                 <TextBlock Style="{DynamicResource MainAreaTitleStyle}" >
                     <TextBlock.Text>
-                        <MultiBinding StringFormat="{}{0}[{1}]">
+                        <MultiBinding StringFormat="{}{0}   [{1:yyyy-MM-dd HH:mm:ss}]">
                             <Binding Path="BPDName" Converter="{StaticResource ImageNameCt}"/>
-                            <Binding Path="FileCreationTime" StringFormat="{}{0:d}"/>
+                            <Binding Path="FileCreationTime"/>
                         </MultiBinding>
                     </TextBlock.Text>
                 </TextBlock>
                 <Canvas x:Name="dcDrawingArea" Grid.Row="1" Margin="{DynamicResource Thickness5}"
-                        MouseLeftButtonDown="dcDrawingArea_MouseLeftButtonDown" SizeChanged="dcDrawingArea_SizeChanged">
+                        MouseLeftButtonDown="dcDrawingArea_MouseLeftButtonDown" SizeChanged="dcDrawingArea_SizeChanged"
+                        Background="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Border},Path=Background}">
                     <Image x:Name="image" Source="{Binding BPDName, Converter={StaticResource ImagePathCt}}" Stretch="Uniform"
                            Width="{Binding ActualWidth, ElementName=dcDrawingArea}"
                            Height="{Binding ActualHeight, ElementName=dcDrawingArea}"/>
@@ -96,8 +97,6 @@
         </Border>
         <TextBlock Text="made by xs.zhou@cdpmi 2015" Grid.Row="1"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Slider x:Name="sliderScale" Width="100" Maximum="300" Minimum="50" Value="100" IsSnapToTickEnabled="True"/>
-            <TextBlock Text="{Binding ElementName=sliderScale,Path=Value,StringFormat={}{0}%}"/>
             <CheckBox x:Name="chkGuideLine" IsChecked="True" Content="{StaticResource ShowGuideLine}"/>
         </StackPanel>
     </Grid>

@@ -58,7 +58,7 @@ namespace BinaryPhaseDiagramOperationLib
                 BPDDataItem bpd = new BPDDataItem()
                 {
                     BPDName = file.Name,
-                    FileCreationTime = file.CreationTime
+                    FileCreationTime = file.LastWriteTime
                 };
                 results.Add(bpd);
             }
