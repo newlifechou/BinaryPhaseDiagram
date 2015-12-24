@@ -17,7 +17,7 @@
             <Setter Property="Padding" Value="5 10 5 10"/>
             <Setter Property="FontSize" Value="12"/>
         </Style.Setters>
-        <Style.Triggers>
+        <!--<Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
                 <Trigger.EnterActions>
                     <BeginStoryboard>
@@ -34,7 +34,7 @@
                     </BeginStoryboard>
                 </Trigger.ExitActions>
             </Trigger>
-        </Style.Triggers>
+        </Style.Triggers>-->
     </Style>
     <Style x:Key="TitlteTextBlockStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="FontSize" Value="25"/>
