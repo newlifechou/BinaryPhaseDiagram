@@ -17,24 +17,6 @@
             <Setter Property="Padding" Value="5 10 5 10"/>
             <Setter Property="FontSize" Value="12"/>
         </Style.Setters>
-        <!--<Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="true">
-                <Trigger.EnterActions>
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="FontSize" To="20" Duration="0:0:0.3"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </Trigger.EnterActions>
-                <Trigger.ExitActions>
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="FontSize" Duration="0:0:0.5"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </Trigger.ExitActions>
-            </Trigger>
-        </Style.Triggers>-->
     </Style>
     <Style x:Key="TitlteTextBlockStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="FontSize" Value="25"/>
@@ -47,7 +29,6 @@
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="DeepSkyBlue"/>
     </Style>
     <Thickness x:Key="Thickness5">5</Thickness>
     <Thickness x:Key="Thickness10">10</Thickness>
