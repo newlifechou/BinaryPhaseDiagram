@@ -51,18 +51,24 @@ namespace BinaryPhaseDiagramOperationLib
                 throw new DirectoryNotFoundException();
             }
 
-            List<BPDDataItem> results = new List<BPDDataItem>();
+            //List<BPDDataItem> results = new List<BPDDataItem>();
             DirectoryInfo dir = new DirectoryInfo(ImageFileFolder);
-            foreach (var file in dir.GetFiles(searchStr, SearchOption.AllDirectories))
-            {
-                BPDDataItem bpd = new BPDDataItem()
-                {
-                    BPDName = file.Name,
-                    FileCreationTime = file.LastWriteTime
-                };
-                results.Add(bpd);
-            }
 
+            //使用linq来简化写法
+            var allFiles = dir.GetFiles(searchStr, SearchOption.AllDirectories);
+            var query = from file in allFiles
+                        select new BPDDataItem() { BPDName = file.Name, FileCreationTime = file.LastWriteTime };
+
+            var results = query.ToList<BPDDataItem>();
+            //foreach (var file in dir.GetFiles(searchStr, SearchOption.AllDirectories))
+            //{
+            //    BPDDataItem bpd = new BPDDataItem()
+            //    {
+            //        BPDName = file.Name,
+            //        FileCreationTime = file.LastWriteTime
+            //    };
+            //    results.Add(bpd);
+            //}
             return results;
         }
     }
