@@ -34,10 +34,10 @@ namespace BinaryPhaseDiagramOperationLib
             {
                 return GetBPDLists("*.jpg");
             }
-            //正序
+            //正序查询
             string searchStr = "*" + elementA + "*-*" + elementB + "*.jpg";
             List<BPDDataItem> listAll = GetBPDLists(searchStr);
-            //逆序
+            //逆序查询
             searchStr = "*" + elementB + "*-*" + elementA + "*.jpg";
             List<BPDDataItem> listLeft = GetBPDLists(searchStr);
             listAll.AddRange(listLeft);

@@ -126,7 +126,10 @@
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
-                    <Button x:Name="button" Content="Output" Grid.Column="1" Margin="{DynamicResource Thickness5}" Padding="{DynamicResource Thickness5}"/>
+                    <Button x:Name="button" Content="{StaticResource Output}" Grid.Column="1"
+                            Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window},Path=DataContext.OutputCommand}"
+                            CommandParameter="{Binding}"
+                            Margin="{DynamicResource Thickness5}" Padding="{DynamicResource Thickness5}"/>
                 </Grid>
                 <Canvas x:Name="dcDrawingArea" Grid.Row="1" Margin="{DynamicResource Thickness5}"
                         MouseLeftButtonDown="dcDrawingArea_MouseLeftButtonDown" SizeChanged="dcDrawingArea_SizeChanged"

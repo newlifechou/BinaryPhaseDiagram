@@ -1,18 +1,11 @@
-﻿using GalaSoft.MvvmLight.Messaging;
+﻿using BinaryPhaseDiagramOperationLib;
+using GalaSoft.MvvmLight.Messaging;
+using form = System.Windows.Forms;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Wpf_BinaryPhaseDiagram
 {
@@ -32,6 +25,8 @@ namespace Wpf_BinaryPhaseDiagram
                  SelectTheFirstListBoxItem();
                  HideGuideLine();
              });
+            Messenger.Default.Register<BPDDataItem>(this, "OutputImageToken",OutputImageMethod);
+
 
             this.Unloaded += (s, e) =>
             {
@@ -91,6 +86,29 @@ namespace Wpf_BinaryPhaseDiagram
         private void lstBPD_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             HideGuideLine();
+        }
+
+        private void OutputImageMethod(BPDDataItem item)
+        {
+            try
+            {
+                form.SaveFileDialog save = new form.SaveFileDialog();
+                save.Title = "Output";
+                save.FileName = item.BPDName;
+                save.RestoreDirectory = true;
+                save.Filter = "Image(*.jpg)|*.jpg";
+                save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                if (save.ShowDialog() ==form.DialogResult.OK)
+                {
+                    string sourceFile = System.IO.Path.Combine(Environment.CurrentDirectory, "Images", item.BPDName);
+                    string targetFile = save.FileName;
+                    File.Copy(sourceFile, targetFile);
+                }
+            }
+            catch (Exception ex)
+            {
+               form.MessageBox.Show(ex.Message, "Exception Occurs",form. MessageBoxButtons.OK);
+            }
         }
     }
 }

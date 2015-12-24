@@ -4,6 +4,9 @@ using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
 using BinaryPhaseDiagramOperationLib;
 using GalaSoft.MvvmLight.Messaging;
+using System.IO;
+using System.Windows.Forms;
+using System;
 
 namespace Wpf_BinaryPhaseDiagram.ViewModel
 {
@@ -58,6 +61,18 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
                   ResultCount = BPDList.Count;
                   Messenger.Default.Send<object>(null, "SearchFinished");
               });
+
+            OutputCommand = new RelayCommand<BPDDataItem>(item =>
+              {
+                  Messenger.Default.Send<BPDDataItem>(item, "OutputImageToken");                 
+              }, item =>
+               {
+                   if (item != null)
+                   {
+                       return true;
+                   }
+                   return false;
+               });
         }
         private BPDOperation bpdOp;
 
@@ -111,5 +126,6 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
         //¹«¿ªµÄÃüÁî
         public RelayCommand SearchResultCommand { get; set; }
         public RelayCommand ShowAllCommand { get; set; }
+        public RelayCommand<BPDDataItem> OutputCommand { get; set; }
     }
 }
