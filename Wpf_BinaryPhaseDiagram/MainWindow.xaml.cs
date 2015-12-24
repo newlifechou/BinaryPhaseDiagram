@@ -20,6 +20,7 @@ namespace Wpf_BinaryPhaseDiagram
 
             SelectTheFirstListBoxItem();
 
+            //注册信使
             Messenger.Default.Register<object>(this, "SearchFinished", obj =>
              {
                  SelectTheFirstListBoxItem();
@@ -28,6 +29,7 @@ namespace Wpf_BinaryPhaseDiagram
             Messenger.Default.Register<BPDDataItem>(this, "OutputImageToken",OutputImageMethod);
 
 
+            //注销所有信使
             this.Unloaded += (s, e) =>
             {
                 Messenger.Default.Unregister(this);

@@ -4,9 +4,6 @@ using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
 using BinaryPhaseDiagramOperationLib;
 using GalaSoft.MvvmLight.Messaging;
-using System.IO;
-using System.Windows.Forms;
-using System;
 
 namespace Wpf_BinaryPhaseDiagram.ViewModel
 {
