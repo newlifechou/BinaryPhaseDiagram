@@ -95,15 +95,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="XamlResources\ConverterResource.xaml">
+    <Page Include="AppResources\ConverterResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="XamlResources\UIEnglish.xaml">
+    <Page Include="AppResources\UIEnglish.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="XamlResources\CommonStyle.xaml">
+    <Page Include="AppResources\CommonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
