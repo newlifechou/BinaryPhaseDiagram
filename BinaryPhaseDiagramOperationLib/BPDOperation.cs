@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 namespace BinaryPhaseDiagramOperationLib
 {
@@ -70,6 +71,34 @@ namespace BinaryPhaseDiagramOperationLib
             //    results.Add(bpd);
             //}
             return results;
+        }
+
+        /// <summary>
+        /// 保存相图图片到某个地方
+        /// </summary>
+        /// <param name="item"></param>
+        public void SaveAImageSomeWhere(BPDDataItem item)
+        {
+            try
+            {
+                SaveFileDialog save = new SaveFileDialog();
+                save.Title = "Output";
+                save.FileName = item.BPDName;
+                save.RestoreDirectory = true;
+                save.Filter = "Image(*.jpg)|*.jpg";
+                save.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    string sourceFile = Path.Combine(Environment.CurrentDirectory, "Images", item.BPDName);
+                    string targetFile = save.FileName;
+                    File.Copy(sourceFile, targetFile);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

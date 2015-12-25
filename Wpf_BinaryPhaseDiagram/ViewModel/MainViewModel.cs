@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 using System.Collections.ObjectModel;
 using BinaryPhaseDiagramOperationLib;
 using GalaSoft.MvvmLight.Messaging;
+using System.Windows;
 
 namespace Wpf_BinaryPhaseDiagram.ViewModel
 {
@@ -61,7 +62,15 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
 
             OutputCommand = new RelayCommand<BPDDataItem>(item =>
               {
-                  Messenger.Default.Send<BPDDataItem>(item, "OutputImageToken");                 
+                  try
+                  {
+                      bpdOp.SaveAImageSomeWhere(item);
+                  }
+                  catch (System.Exception ex)
+                  {
+                      MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK);
+                  }
+
               }, item =>
                {
                    if (item != null)
