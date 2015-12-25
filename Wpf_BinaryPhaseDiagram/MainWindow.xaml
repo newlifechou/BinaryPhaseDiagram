@@ -85,9 +85,9 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{StaticResource SearchPanelTitleString}" Style="{StaticResource TitlteTextBlockStyle}" Grid.ColumnSpan="2"/>
-                <TextBlock Text="{StaticResource ElementAString}" Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockStyle}"/>
-                <TextBlock Text="{StaticResource ElementBString}" Grid.Row="3" Grid.Column="0"  Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock Text="{DynamicResource SearchPanelTitleString}" Style="{StaticResource TitlteTextBlockStyle}" Grid.ColumnSpan="2"/>
+                <TextBlock Text="{DynamicResource ElementAString}" Grid.Row="2" Grid.Column="0" Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock Text="{DynamicResource ElementBString}" Grid.Row="3" Grid.Column="0"  Style="{StaticResource TextBlockStyle}"/>
                 <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Text="{Binding ElementA,UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Text="{Binding ElementB,UpdateSourceTrigger=PropertyChanged}"/>
                 <Label x:Name="label" Grid.Row="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -102,9 +102,9 @@
                         <Image Source="system_help.png" Height="35" Width="35"/>
                     </Grid>
                 </Label>
-                <Button Content="{StaticResource SearchButtonString}" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource ButtonStyle}"
+                <Button Content="{DynamicResource SearchButtonString}" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource ButtonStyle}"
         				Command="{Binding SearchResultCommand}"/>
-                <Button Content="{StaticResource SearchAllButtonString}" Grid.Row="5" Grid.ColumnSpan="3" Style="{StaticResource ButtonStyle}"
+                <Button Content="{DynamicResource SearchAllButtonString}" Grid.Row="5" Grid.ColumnSpan="3" Style="{StaticResource ButtonStyle}"
                         Command="{Binding ShowAllCommand}"/>
                 <ListBox  x:Name="lstBPD" Grid.Row="6" Grid.ColumnSpan="3"  ItemsSource="{Binding BPDList}"
                           ItemContainerStyle="{StaticResource listboxitemStyle}" SelectionChanged="lstBPD_SelectionChanged">
@@ -140,7 +140,7 @@
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
-                    <Button x:Name="button" Content="{StaticResource Output}" Grid.Column="1"
+                    <Button x:Name="button" Content="{DynamicResource Output}" Grid.Column="1"
                             Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window},Path=DataContext.OutputCommand}"
                             CommandParameter="{Binding}"
                             Margin="{DynamicResource Thickness5}" Padding="{DynamicResource Thickness5}" Style="{DynamicResource ButtonStyle}"/>
@@ -165,7 +165,7 @@
         </Border>
         <TextBlock Text="designed by xs.zhou 2015" Grid.Row="1" Padding="{DynamicResource Thickness5}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <CheckBox x:Name="chkGuideLine" IsChecked="True" Content="{StaticResource ShowGuideLine}"/>
+            <CheckBox x:Name="chkGuideLine" IsChecked="True" Content="{DynamicResource ShowGuideLine}"/>
         </StackPanel>
     </Grid>
 </Window>
