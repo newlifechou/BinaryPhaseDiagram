@@ -117,7 +117,7 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <TextBlock Text="{Binding Path=ResultCount,StringFormat=Total: {0} Results}" Grid.Row="7"/>
+                <TextBlock Text="{Binding Path=ResultCount,StringFormat=Total: {0} Results}" Grid.Row="7" Grid.ColumnSpan="3"/>
             </Grid>
         </Border>
         <Border Grid.Column="1" Background="{DynamicResource BackgroundBrush}"
