@@ -13,5 +13,5 @@
     <sys:String x:Key="Output">Output</sys:String>
     <sys:String x:Key="HelpTipTitle">Tips</sys:String>
     <sys:String x:Key="HelpTipContent">Input the symbol of element  and Search!
-        Input one element and leave another empty, you can search all the results related with this element</sys:String>
+        Input one element and leave another empty, you can search all the results related with this element.Case is not limited.</sys:String>
 </ResourceDictionary>
