@@ -94,8 +94,8 @@
                 	Grid.Column="2" Grid.RowSpan="2">
                     <Label.ToolTip>
                         <StackPanel Width="300">
-                            <TextBlock Text="{StaticResource HelpTipTitle}" Foreground="Blue" FontSize="18" Padding="0,5"/>
-                            <TextBlock Text="{StaticResource HelpTipContent}" TextWrapping="Wrap" Padding="0,5"/>
+                            <TextBlock Text="{DynamicResource HelpTipTitle}" Foreground="Blue" FontSize="18" Padding="0,5"/>
+                            <TextBlock Text="{DynamicResource HelpTipContent}" TextWrapping="Wrap" Padding="0,5"/>
                         </StackPanel>
                     </Label.ToolTip>
                     <Grid>
@@ -117,7 +117,11 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <TextBlock Text="{Binding Path=ResultCount,StringFormat=Total: {0} Results}" Grid.Row="7" Grid.ColumnSpan="3"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.ColumnSpan="3">
+                    <TextBlock Text="{DynamicResource Total}"/>
+                    <TextBlock Text="{Binding Path=ResultCount}" />
+                    <TextBlock Text="{DynamicResource Results}"/>
+                </StackPanel>
             </Grid>
         </Border>
         <Border Grid.Column="1" Background="{DynamicResource BackgroundBrush}"
@@ -146,7 +150,7 @@
                             Margin="{DynamicResource Thickness5}" Padding="{DynamicResource Thickness5}" Style="{DynamicResource ButtonStyle}"/>
                 </Grid>
                 <Canvas x:Name="dcDrawingArea" Grid.Row="1" Margin="{DynamicResource Thickness5}"
-                        MouseLeftButtonDown="dcDrawingArea_MouseLeftButtonDown" SizeChanged="dcDrawingArea_SizeChanged"
+                        MouseLeftButtonDown="dcDrawingArea_MouseLeftButtonDown"
                         Background="{Binding Background, RelativeSource={RelativeSource AncestorType={x:Type Border}, Mode=FindAncestor}}">
                     <Image x:Name="imagePart" Source="{Binding BPDName, Converter={StaticResource ImagePathCt}}" Stretch="Uniform"
                            Width="{Binding ActualWidth, ElementName=dcDrawingArea}"
@@ -165,7 +169,11 @@
         </Border>
         <TextBlock Text="designed by xs.zhou 2015" Grid.Row="1" Padding="{DynamicResource Thickness5}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <CheckBox x:Name="chkGuideLine" IsChecked="True" Content="{DynamicResource ShowGuideLine}"/>
+            <CheckBox x:Name="chkGuideLine" IsChecked="True" Content="{DynamicResource ShowGuideLine}" VerticalAlignment="Center" Margin="0,0,20,0"/>
+            <ComboBox x:Name="cboLanguage" SelectedIndex="0" SelectionChanged="cboLanguage_SelectionChanged" >
+                <ComboBoxItem Content="English"/>
+                <ComboBoxItem Content="Chinese"/>
+            </ComboBox>
         </StackPanel>
     </Grid>
 </Window>

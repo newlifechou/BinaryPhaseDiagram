@@ -6,7 +6,7 @@
     <sys:String x:Key="MainWindowTitleString">二元相图软件</sys:String>
     <sys:String x:Key="SearchPanelTitleString">搜索面板</sys:String>
     <sys:String x:Key="ElementAString">元素A</sys:String>
-    <sys:String x:Key="ElementBString">元素</sys:String>
+    <sys:String x:Key="ElementBString">元素B</sys:String>
     <sys:String x:Key="SearchButtonString">立即搜索!</sys:String>
     <sys:String x:Key="SearchAllButtonString">显示全部</sys:String>
     <sys:String x:Key="ShowGuideLine">显示参考线</sys:String>
@@ -14,4 +14,7 @@
     <sys:String x:Key="HelpTipTitle">提示</sys:String>
     <sys:String x:Key="HelpTipContent">输入元素名称并搜索!
         输入一个元素，另外一个空着，可以搜索和该元素相关的所有相图.大小写均可以.</sys:String>
+    <sys:String x:Key="Language">中文</sys:String>
+    <sys:String x:Key="Total">总共:</sys:String>
+    <sys:String x:Key="Results">结果</sys:String>
 </ResourceDictionary>

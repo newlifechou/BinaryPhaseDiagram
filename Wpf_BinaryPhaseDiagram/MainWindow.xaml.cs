@@ -17,6 +17,7 @@ namespace Wpf_BinaryPhaseDiagram
         public MainWindow()
         {
             InitializeComponent();
+            SetLanguage();
 
             SelectTheFirstListBoxItem();
 
@@ -67,8 +68,7 @@ namespace Wpf_BinaryPhaseDiagram
 
         private void dcDrawingArea_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            HideGuideLine();
-            e.Handled = true;
+            //HideGuideLine();
         }
 
         private void HideGuideLine()
@@ -84,9 +84,72 @@ namespace Wpf_BinaryPhaseDiagram
             lineVertical.Y2 = 1;
         }
 
+        /// <summary>
+        /// 选择项目改变的时候，隐藏参考线
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lstBPD_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             HideGuideLine();
+            //这里不能用e.handle=true，否则冒泡事件无法传播到Window上
+        }
+
+        /// <summary>
+        /// 更换语言资源
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cboLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cboLanguage.Text))
+            {
+                return;
+            }
+
+            string languageType;
+            if (cboLanguage.Text == "English")
+            {
+                languageType = "Chinese";
+            }
+            else
+            {
+                languageType = "English";
+            }
+            try
+            {
+                ChangeLanguageResource(languageType);
+                Properties.Settings.Default.Language = languageType;
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            e.Handled = true;
+        }
+
+        private static void ChangeLanguageResource(string languageType)
+        {
+            string languagePath = "Resources/UI" + languageType + ".xaml";
+            Application.Current.Resources.MergedDictionaries[0] =
+                new ResourceDictionary() { Source = new Uri(languagePath, UriKind.Relative) };
+        }
+
+        private void SetLanguage()
+        {
+            try
+            {
+                string languageType = Properties.Settings.Default.Language;
+                cboLanguage.Text = languageType;
+                ChangeLanguageResource(languageType);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
