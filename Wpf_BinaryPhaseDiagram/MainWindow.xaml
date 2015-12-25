@@ -81,7 +81,7 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="80"/>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
@@ -99,7 +99,7 @@
                         </StackPanel>
                     </Label.ToolTip>
                     <Grid>
-                        <Image Source="system_help.png" Height="50" Width="50"/>
+                        <Image Source="system_help.png" Height="35" Width="35"/>
                     </Grid>
                 </Label>
                 <Button Content="{StaticResource SearchButtonString}" Grid.Row="4" Grid.ColumnSpan="3" Style="{StaticResource ButtonStyle}"
@@ -143,7 +143,7 @@
                     <Button x:Name="button" Content="{StaticResource Output}" Grid.Column="1"
                             Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Window},Path=DataContext.OutputCommand}"
                             CommandParameter="{Binding}"
-                            Margin="{DynamicResource Thickness5}" Padding="{DynamicResource Thickness5}"/>
+                            Margin="{DynamicResource Thickness5}" Padding="{DynamicResource Thickness5}" Style="{DynamicResource ButtonStyle}"/>
                 </Grid>
                 <Canvas x:Name="dcDrawingArea" Grid.Row="1" Margin="{DynamicResource Thickness5}"
                         MouseLeftButtonDown="dcDrawingArea_MouseLeftButtonDown" SizeChanged="dcDrawingArea_SizeChanged"

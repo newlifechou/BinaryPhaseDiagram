@@ -3,19 +3,22 @@
                     xmlns:local="clr-namespace:Wpf_BinaryPhaseDiagram.Skins">
     <!--这里是整个工程的公共使用资源定义-->
     <Style x:Key="TextBlockStyle" TargetType="TextBlock">
-        <Setter Property="Margin" Value="0,5,5,5"/>
+        <Setter Property="Margin" Value="0,5,0,5"/>
         <Setter Property="Padding" Value="5"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
     </Style>
     <Style x:Key="TextBoxStyle" TargetType="TextBox">
         <Setter Property="Margin" Value="0,5"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Template" Value="{StaticResource RoundCornerTextBoxBaseControlTemplate}"/>
     </Style>
     <Style x:Key="ButtonStyle" TargetType="Button">
         <Style.Setters>
             <Setter Property="Margin" Value="0,5"/>
             <Setter Property="Padding" Value="5 10 5 10"/>
             <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Template" Value="{StaticResource RoundCornerButtonControlTemplate}"/>
         </Style.Setters>
     </Style>
     <Style x:Key="TitlteTextBlockStyle" TargetType="{x:Type TextBlock}">

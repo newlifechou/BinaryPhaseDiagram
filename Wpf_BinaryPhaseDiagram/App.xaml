@@ -3,7 +3,9 @@
         <ResourceDictionary>
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:Wpf_BinaryPhaseDiagram.ViewModel" />
             <ResourceDictionary.MergedDictionaries>
+                <!--注意资源顺序，最基本的放在前面供后面的引用-->
                 <ResourceDictionary Source="Resources/UIEnglish.xaml"/>
+                <ResourceDictionary Source="Resources/ControlTemplateStyle.xaml"/>
                 <ResourceDictionary Source="Resources/CommonStyle.xaml"/>
                 <ResourceDictionary Source="Resources/ConverterResource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
