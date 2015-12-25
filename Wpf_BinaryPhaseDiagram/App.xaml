@@ -3,9 +3,9 @@
         <ResourceDictionary>
             <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:Wpf_BinaryPhaseDiagram.ViewModel" />
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="AppResources/UIEnglish.xaml"/>
-                <ResourceDictionary Source="AppResources/CommonStyle.xaml"/>
-                <ResourceDictionary Source="AppResources/ConverterResource.xaml"/>
+                <ResourceDictionary Source="Resources/UIEnglish.xaml"/>
+                <ResourceDictionary Source="Resources/CommonStyle.xaml"/>
+                <ResourceDictionary Source="Resources/ConverterResource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

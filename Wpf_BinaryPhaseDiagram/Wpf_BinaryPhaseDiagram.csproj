@@ -95,15 +95,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="AppResources\ConverterResource.xaml">
+    <Page Include="Resources\ConverterResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppResources\UIEnglish.xaml">
+    <Page Include="Resources\UIEnglish.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AppResources\CommonStyle.xaml">
+    <Page Include="Resources\CommonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="documents.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="system_help.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
