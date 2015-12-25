@@ -102,20 +102,13 @@ namespace Wpf_BinaryPhaseDiagram
         /// <param name="e"></param>
         private void cboLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string languageType = (cboLanguage.SelectedItem as ComboBoxItem).Content.ToString();
+
             if (string.IsNullOrEmpty(cboLanguage.Text))
             {
                 return;
             }
 
-            string languageType;
-            if (cboLanguage.Text == "English")
-            {
-                languageType = "Chinese";
-            }
-            else
-            {
-                languageType = "English";
-            }
             try
             {
                 ChangeLanguageResource(languageType);
@@ -144,7 +137,7 @@ namespace Wpf_BinaryPhaseDiagram
             {
                 string languageType = Properties.Settings.Default.Language;
                 cboLanguage.Text = languageType;
-                ChangeLanguageResource(languageType);
+                //ChangeLanguageResource(languageType);
             }
             catch (Exception ex)
             {
