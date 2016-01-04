@@ -1,6 +1,6 @@
 using GalaSoft.MvvmLight;
 //注意这里需要引用CommandWpf，这是mvvmlight在WPF项目当中的一个要求
-using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Command;
 using System.Collections.ObjectModel;
 using BinaryPhaseDiagramOperationLib;
 using GalaSoft.MvvmLight.Messaging;
