@@ -17,7 +17,7 @@
                     <Trigger.EnterActions>
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="25" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="25" Duration="0:0:0.1"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </Trigger.EnterActions>
@@ -45,13 +45,13 @@
                     <Storyboard>
                         <DoubleAnimation Storyboard.TargetName="imagePart"
                                          Storyboard.TargetProperty="(Image.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"
-                                         From="0.1" To="1" Duration="0:0:0.5"/>
+                                         From="0.1" To="1" Duration="0:0:0.3"/>
                         <DoubleAnimation Storyboard.TargetName="imagePart"
                                          Storyboard.TargetProperty="(Image.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"
-                                         From="0.1" To="1" Duration="0:0:0.5"/>
+                                         From="0.1" To="1" Duration="0:0:0.3"/>
                         <DoubleAnimation Storyboard.TargetName="imagePart"
                                          Storyboard.TargetProperty="Opacity"
-                                         From="0" To="1" Duration="0:0:0.5"/>
+                                         From="0" To="1" Duration="0:0:0.3"/>
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger.Actions>
