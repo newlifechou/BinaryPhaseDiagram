@@ -167,7 +167,7 @@
                 </Canvas>
             </Grid>
         </Border>
-        <TextBlock Text="designed by xs.zhou 2015" Grid.Row="1" Padding="{DynamicResource Thickness5}"/>
+        <TextBlock Text="{Binding VersionAndCopyRight }" Grid.Row="1" Padding="{DynamicResource Thickness5}"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
             <CheckBox x:Name="chkGuideLine" IsChecked="True" Content="{DynamicResource ShowGuideLine}" VerticalAlignment="Center" Margin="0,0,20,0"/>
             <ComboBox x:Name="cboLanguage" SelectionChanged="cboLanguage_SelectionChanged" >

@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using BinaryPhaseDiagramOperationLib;
 using GalaSoft.MvvmLight.Messaging;
 using System.Windows;
+using System.Reflection;
 
 namespace Wpf_BinaryPhaseDiagram.ViewModel
 {
@@ -79,6 +80,8 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
                    }
                    return false;
                });
+
+            VersionAndCopyRight = "Designed by xs.zhou 2015" +" Version:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
         private BPDOperation bpdOp;
 
@@ -125,6 +128,14 @@ namespace Wpf_BinaryPhaseDiagram.ViewModel
         {
             get { return resultCount; }
             set { resultCount = value; RaisePropertyChanged(() => ResultCount); }
+        }
+
+        private string versionAndCopyRight;
+
+        public string VersionAndCopyRight
+        {
+            get { return versionAndCopyRight; }
+            set { versionAndCopyRight = value; RaisePropertyChanged(() => VersionAndCopyRight); }
         }
 
 
