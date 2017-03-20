@@ -1,0 +1,37 @@
+﻿<Window x:Class="BinaryPhaseDiagramTwo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BinaryPhaseDiagramTwo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" WindowState="Maximized" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"  MouseLeftButtonDown="Grid_MouseLeftButtonDown"
+              Background="LightBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="二元项目软件" VerticalAlignment="Center" Margin="2" FontWeight="Bold" Foreground="White"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+                <Button x:Name="btnMinimum" Click="btnMinimum_Click"
+                        Content="-" Width="30" Margin="2"/>
+                <Button x:Name="btnClose" Click="btnClose_Click"
+                        Content="X" Width="30" Margin="2"/>
+            </StackPanel>
+        </Grid>
+        
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Background="Orange">
+            <TextBlock Text="状态栏" Margin="2"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf_BinaryPhaseDiagram", "Wpf_BinaryPhaseDiagram\Wpf_BinaryPhaseDiagram.csproj", "{AB3BC019-AF61-4B41-A2E8-72B3BCED36C5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryPhaseDiagramOperationLib", "BinaryPhaseDiagramOperationLib\BinaryPhaseDiagramOperationLib.csproj", "{60F496AC-552E-4A77-91B3-D74794F2D44E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryPhaseDiagramTwo", "BinaryPhaseDiagramTwo\BinaryPhaseDiagramTwo.csproj", "{DD06062F-7D44-4F08-89DB-E516B8E9D466}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{60F496AC-552E-4A77-91B3-D74794F2D44E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60F496AC-552E-4A77-91B3-D74794F2D44E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60F496AC-552E-4A77-91B3-D74794F2D44E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD06062F-7D44-4F08-89DB-E516B8E9D466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD06062F-7D44-4F08-89DB-E516B8E9D466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD06062F-7D44-4F08-89DB-E516B8E9D466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD06062F-7D44-4F08-89DB-E516B8E9D466}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
