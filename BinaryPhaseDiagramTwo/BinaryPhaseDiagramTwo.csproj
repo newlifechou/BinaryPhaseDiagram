@@ -55,12 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\ImageNameConverter.cs" />
+    <Compile Include="Converters\ImagePathConverter.cs" />
     <Compile Include="Views\SearchView.xaml.cs">
       <DependentUpon>SearchView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ResultView.xaml.cs">
       <DependentUpon>ResultView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Converters\MyConverter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Styles\BasicStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -118,7 +124,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Converters\" />
     <Folder Include="Models\" />
     <Folder Include="Resources\Languages\" />
     <Folder Include="ViewModels\" />

@@ -21,11 +21,20 @@
             <Button Name="btnAll" Content="All" Style="{DynamicResource ButtonBasic}"
                     Click="btnAll_Click"/>
         </StackPanel>
-        <DataGrid Name="mainDg" Grid.Row="1" Style="{StaticResource DataGridBasic}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding BPDName}"/>
-                <DataGridTextColumn Header="File Create Time" Binding="{Binding  FileCreationTime}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <ListBox Name="mainDg" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding BPDName,Converter={StaticResource ImageNameConverter}}"
+                                   Style="{StaticResource TextBlockBasic}" FontSize="30"/>
+                        <TextBlock Grid.Row="1" Text="{Binding FileCreationTime}" Style="{StaticResource TextBlockBasic}" Foreground="Wheat"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:Wpf_BinaryPhaseDiagram.Converter">
+    <converter:ImagePathConverter x:Key="ImagePathConverter"/>
+    <converter:ImageNameConverter x:Key="ImageNameConverter"/>
+</ResourceDictionary>
