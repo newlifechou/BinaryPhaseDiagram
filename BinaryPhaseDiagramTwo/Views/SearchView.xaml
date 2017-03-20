@@ -19,5 +19,11 @@
             <Button Content="Search" Style="{DynamicResource ButtonBasic}"/>
             <Button Content="All" Style="{DynamicResource ButtonBasic}"/>
         </StackPanel>
+        <DataGrid Grid.Row="1" Style="{StaticResource DataGridBasic}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding BPDName}"/>
+                <DataGridTextColumn Header="File Create Time" Binding="{Binding  FileCreationTime}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

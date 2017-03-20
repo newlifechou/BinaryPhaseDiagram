@@ -161,6 +161,12 @@
     <Resource Include="Images\Ag-Mo.JPG" />
     <Resource Include="Images\Ag-Na.JPG" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BinaryPhaseDiagramOperationLib\BinaryPhaseDiagramOperationLib.csproj">
+      <Project>{60f496ac-552e-4a77-91b3-d74794f2d44e}</Project>
+      <Name>BinaryPhaseDiagramOperationLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

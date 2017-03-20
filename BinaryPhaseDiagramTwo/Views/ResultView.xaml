@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:BinaryPhaseDiagramTwo.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Background="LightBlue">
-            
-    </Grid>
+    <Canvas Background="LightBlue">
+        <Image/>
+    </Canvas>
 </UserControl>
