@@ -165,6 +165,56 @@
   <ItemGroup>
     <Resource Include="ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Ac-B.JPG" />
+    <Resource Include="Images\Ac-Cr.JPG" />
+    <Resource Include="Images\Ac-Mo.JPG" />
+    <Resource Include="Images\Ac-Pt.JPG" />
+    <Resource Include="Images\Ag-Al.JPG" />
+    <Resource Include="Images\Ag-As.JPG" />
+    <Resource Include="Images\Ag-Au.JPG" />
+    <Resource Include="Images\Ag-B.JPG" />
+    <Resource Include="Images\Ag-Ba.JPG" />
+    <Resource Include="Images\Ag-Be.JPG" />
+    <Resource Include="Images\Ag-Bi.JPG" />
+    <Resource Include="Images\Ag-C.JPG" />
+    <Resource Include="Images\Ag-Ca.JPG" />
+    <Resource Include="Images\Ag-Cd.JPG" />
+    <Resource Include="Images\Ag-Ce.JPG" />
+    <Resource Include="Images\Ag-Co.JPG" />
+    <Resource Include="Images\Ag-Cr.JPG" />
+    <Resource Include="Images\Ag-Cu.JPG" />
+    <Resource Include="Images\Ag-Dy.JPG" />
+    <Resource Include="Images\Ag-Er.JPG" />
+    <Resource Include="Images\Ag-Eu.JPG" />
+    <Resource Include="Images\Ag-Fe.JPG" />
+    <Resource Include="Images\Ag-Ga.JPG" />
+    <Resource Include="Images\Ag-Gd.JPG" />
+    <Resource Include="Images\Ag-Ge.JPG" />
+    <Resource Include="Images\Ag-Hg.JPG" />
+    <Resource Include="Images\Ag-Ho.JPG" />
+    <Resource Include="Images\Ag-In.JPG" />
+    <Resource Include="Images\Ag-Ir.JPG" />
+    <Resource Include="Images\Ag-La.JPG" />
+    <Resource Include="Images\Ag-Li.JPG" />
+    <Resource Include="Images\Ag-Lu.JPG" />
+    <Resource Include="Images\Ag-Mg.JPG" />
+    <Resource Include="Images\Ag-Mn.JPG" />
+    <Resource Include="Images\Ag-Mo.JPG" />
+    <Resource Include="Images\Ag-Na.JPG" />
+    <Resource Include="Images\Ag-Nd.JPG" />
+    <Resource Include="Images\Ag-Ni.JPG" />
+    <Resource Include="Images\Ag-O.JPG" />
+    <Resource Include="Images\Ag-Os.JPG" />
+    <Resource Include="Images\Ag-P.JPG" />
+    <Resource Include="Images\Ag-Pb.JPG" />
+    <Resource Include="Images\Ag-Pd.JPG" />
+    <Resource Include="Images\Ag-Pm.JPG" />
+    <Resource Include="Images\Ag-Pr.JPG" />
+    <Resource Include="Images\Ag-Pt.JPG" />
+    <Resource Include="Images\Ag-Pu.JPG" />
+    <Resource Include="Images\Ag-Re.JPG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
