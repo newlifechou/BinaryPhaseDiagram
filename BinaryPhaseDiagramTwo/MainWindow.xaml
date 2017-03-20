@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BinaryPhaseDiagramTwo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" WindowState="Maximized" WindowStyle="None">
+        Title="MainWindow" Height="350" Width="525"
+        WindowState="Maximized" WindowStyle="None"
+        Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -13,13 +15,13 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0"  MouseLeftButtonDown="Grid_MouseLeftButtonDown"
-              Background="LightBlue">
+              Background="{StaticResource VsBlack}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="二元项目软件" VerticalAlignment="Center" Margin="2" FontWeight="Bold" Foreground="White"/>
+                <TextBlock Text="二元项目软件" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold" Foreground="White"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
                 <Button x:Name="btnMinimum" Click="btnMinimum_Click"
@@ -28,9 +30,8 @@
                         Content="X" Width="30" Margin="2"/>
             </StackPanel>
         </Grid>
-        
-        
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Background="Orange">
+        <ContentControl x:Name="main" Grid.Row="1"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Background="{StaticResource VsBlack}">
             <TextBlock Text="状态栏" Margin="2"/>
         </StackPanel>
     </Grid>

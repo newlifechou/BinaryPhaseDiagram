@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BinaryPhaseDiagramTwo.Views;
+
+
 
 namespace BinaryPhaseDiagramTwo
 {
@@ -20,9 +23,30 @@ namespace BinaryPhaseDiagramTwo
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SearchView _display;
+        private ResultView _search;
         public MainWindow()
         {
             InitializeComponent();
+            InitializeVariables();
+
+        }
+
+        private void InitializeVariables()
+        {
+            _display = new SearchView();
+            _search = new ResultView();
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            NavigateTo(_display);
+        }
+        private void NavigateTo(UserControl view)
+        {
+            if (view != null)
+            {
+                main.Content = view;
+            }
         }
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -39,5 +63,6 @@ namespace BinaryPhaseDiagramTwo
         {
             this.WindowState = WindowState.Minimized;
         }
+
     }
 }

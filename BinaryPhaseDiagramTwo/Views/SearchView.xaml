@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="BinaryPhaseDiagramTwo.Views.SearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BinaryPhaseDiagramTwo.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="1000">
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Background="Orange">
+            <TextBlock Text="Element A" Style="{DynamicResource TextBlockBasic}"/>
+            <TextBox Text="" Style="{DynamicResource TextBoxBasic}"/>
+            <TextBlock Text="Element B" Style="{DynamicResource TextBlockBasic}"/>
+            <TextBox Text="" Style="{DynamicResource TextBoxBasic}"/>
+            <Button Content="Search" Style="{DynamicResource ButtonBasic}"/>
+            <Button Content="All" Style="{DynamicResource ButtonBasic}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

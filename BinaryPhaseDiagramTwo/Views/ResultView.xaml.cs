@@ -18,9 +18,9 @@ namespace BinaryPhaseDiagramTwo.Views
     /// <summary>
     /// SearchResultView.xaml 的交互逻辑
     /// </summary>
-    public partial class SearchResultView : UserControl
+    public partial class ResultView : UserControl
     {
-        public SearchResultView()
+        public ResultView()
         {
             InitializeComponent();
         }
