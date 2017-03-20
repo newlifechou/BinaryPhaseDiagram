@@ -124,42 +124,114 @@
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Ac-B.JPG" />
-    <Resource Include="Images\Ac-Cr.JPG" />
-    <Resource Include="Images\Ac-Mo.JPG" />
-    <Resource Include="Images\Ac-Pt.JPG" />
-    <Resource Include="Images\Ag-Al.JPG" />
-    <Resource Include="Images\Ag-As.JPG" />
-    <Resource Include="Images\Ag-Au.JPG" />
-    <Resource Include="Images\Ag-B.JPG" />
-    <Resource Include="Images\Ag-Ba.JPG" />
-    <Resource Include="Images\Ag-Be.JPG" />
-    <Resource Include="Images\Ag-Bi.JPG" />
-    <Resource Include="Images\Ag-C.JPG" />
-    <Resource Include="Images\Ag-Ca.JPG" />
-    <Resource Include="Images\Ag-Cd.JPG" />
-    <Resource Include="Images\Ag-Ce.JPG" />
-    <Resource Include="Images\Ag-Co.JPG" />
-    <Resource Include="Images\Ag-Cr.JPG" />
-    <Resource Include="Images\Ag-Cu.JPG" />
-    <Resource Include="Images\Ag-Dy.JPG" />
-    <Resource Include="Images\Ag-Er.JPG" />
-    <Resource Include="Images\Ag-Eu.JPG" />
-    <Resource Include="Images\Ag-Fe.JPG" />
-    <Resource Include="Images\Ag-Ga.JPG" />
-    <Resource Include="Images\Ag-Gd.JPG" />
-    <Resource Include="Images\Ag-Ge.JPG" />
-    <Resource Include="Images\Ag-Hg.JPG" />
-    <Resource Include="Images\Ag-Ho.JPG" />
-    <Resource Include="Images\Ag-In.JPG" />
-    <Resource Include="Images\Ag-Ir.JPG" />
-    <Resource Include="Images\Ag-La.JPG" />
-    <Resource Include="Images\Ag-Li.JPG" />
-    <Resource Include="Images\Ag-Lu.JPG" />
-    <Resource Include="Images\Ag-Mg.JPG" />
-    <Resource Include="Images\Ag-Mn.JPG" />
-    <Resource Include="Images\Ag-Mo.JPG" />
-    <Resource Include="Images\Ag-Na.JPG" />
+    <None Include="Images\Ac-B.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ac-Cr.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ac-Mo.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ac-Pt.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Al.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-As.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Au.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-B.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Ba.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Be.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Bi.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-C.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Ca.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Cd.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Ce.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Co.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Cr.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Cu.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Dy.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Er.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Eu.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Fe.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Ga.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Gd.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Ge.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Hg.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Ho.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-In.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Ir.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-La.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Li.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Lu.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Mg.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Mn.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Mo.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Ag-Na.JPG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BinaryPhaseDiagramOperationLib\BinaryPhaseDiagramOperationLib.csproj">

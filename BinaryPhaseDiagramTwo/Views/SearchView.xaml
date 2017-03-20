@@ -13,13 +13,15 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Background="Orange">
             <TextBlock Text="Element A" Style="{DynamicResource TextBlockBasic}"/>
-            <TextBox Text="" Style="{DynamicResource TextBoxBasic}"/>
+            <TextBox Name="txtElementA" Text="" Style="{DynamicResource TextBoxBasic}"/>
             <TextBlock Text="Element B" Style="{DynamicResource TextBlockBasic}"/>
-            <TextBox Text="" Style="{DynamicResource TextBoxBasic}"/>
-            <Button Content="Search" Style="{DynamicResource ButtonBasic}"/>
-            <Button Content="All" Style="{DynamicResource ButtonBasic}"/>
+            <TextBox Name="txtElementB" Text="" Style="{DynamicResource TextBoxBasic}"/>
+            <Button Name="btnSearch" Content="Search" Style="{DynamicResource ButtonBasic}"
+                    Click="btnSearch_Click"/>
+            <Button Name="btnAll" Content="All" Style="{DynamicResource ButtonBasic}"
+                    Click="btnAll_Click"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" Style="{StaticResource DataGridBasic}">
+        <DataGrid Name="mainDg" Grid.Row="1" Style="{StaticResource DataGridBasic}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding BPDName}"/>
                 <DataGridTextColumn Header="File Create Time" Binding="{Binding  FileCreationTime}"/>
