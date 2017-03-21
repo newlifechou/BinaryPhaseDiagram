@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using BinaryPhaseDiagramTwo.Views;
 using BinaryPhaseDiagramOperationLib;
 
 namespace BinaryPhaseDiagramTwo
@@ -57,17 +56,17 @@ namespace BinaryPhaseDiagramTwo
             this.WindowState = WindowState.Minimized;
         }
 
-        private void btnMaximum_Click(object sender, RoutedEventArgs e)
-        {
-            if (this.WindowState == WindowState.Normal)
-            {
-                this.WindowState = WindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = WindowState.Normal;
-            }
-        }
+        //private void btnMaximum_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (this.WindowState == WindowState.Normal)
+        //    {
+        //        this.WindowState = WindowState.Maximized;
+        //    }
+        //    else
+        //    {
+        //        this.WindowState = WindowState.Normal;
+        //    }
+        //}
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
@@ -75,7 +74,7 @@ namespace BinaryPhaseDiagramTwo
             var elementB = txtElementB.Text.Trim();
             try
             {
-                var result= operate.GetData(elementA, elementB);
+                var result = operate.GetData(elementA, elementB);
                 mainDg.ItemsSource = result;
 
                 SetStatusBar(result.Count);
@@ -118,10 +117,10 @@ namespace BinaryPhaseDiagramTwo
         {
             txtStatus.Text = $"共{count}个检索结果";
         }
-        private void mainDg_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            gridSearchPanel.Height = collapse;
-        }
+        //private void mainDg_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    gridSearchPanel.Height = collapse;
+        //}
 
         private void btnCollapse_Click(object sender, RoutedEventArgs e)
         {
@@ -164,6 +163,19 @@ namespace BinaryPhaseDiagramTwo
                 lineVertical.Y2 = 1;
             }
             e.Handled = true;
+        }
+
+        private void txtElementA_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtElementA.Text) && string.IsNullOrEmpty(txtElementB.Text))
+            {
+                btnSearch.IsEnabled = false;
+            }
+            else
+            {
+                btnSearch.IsEnabled = true;
+            }
+
         }
     }
 }

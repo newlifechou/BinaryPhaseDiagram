@@ -27,27 +27,25 @@
             <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
                 <Button x:Name="btnMinimum" Click="btnMinimum_Click"
                         Content="-" Width="30" Margin="2"/>
-                <Button x:Name="btnMaximum" Click="btnMaximum_Click"
-                        Content="+" Width="30" Margin="2"/>
                 <Button x:Name="btnClose" Click="btnClose_Click"
                         Content="X" Width="30" Margin="2"/>
             </StackPanel>
         </Grid>
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="Orange">
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="{StaticResource toolbar}">
             <TextBlock Text="元素A" Style="{DynamicResource TextBlockBasic}"/>
-            <TextBox Name="txtElementA" Text="" Style="{DynamicResource TextBoxBasic}"/>
+            <TextBox Name="txtElementA" Text="" Style="{DynamicResource TextBoxBasic}" SelectionChanged="txtElementA_SelectionChanged"/>
             <TextBlock Text="元素B" Style="{DynamicResource TextBlockBasic}"/>
-            <TextBox Name="txtElementB" Text="" Style="{DynamicResource TextBoxBasic}"/>
-            <Button Name="btnSearch" Content="搜索" Style="{DynamicResource ButtonBasic}"
+            <TextBox Name="txtElementB" Text="" Style="{DynamicResource TextBoxBasic}" SelectionChanged="txtElementA_SelectionChanged"/>
+            <Button Name="btnSearch" Content="搜索" Style="{DynamicResource ButtonBasic}" IsDefault="True" IsEnabled="False"
                     Click="btnSearch_Click"/>
             <Button Name="btnAll" Content="全部" Style="{DynamicResource ButtonBasic}"
                     Click="btnAll_Click"/>
-            <CheckBox Name="chkGuidLine" Content="显示参考线"  IsChecked="True" VerticalAlignment="Center"/>
+            <CheckBox Name="chkGuidLine" Content="显示参考线"  IsChecked="True" Style="{StaticResource CheckBoxBasic}"/>
         </StackPanel>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="320"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Canvas x:Name="mainCanvas" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="Gray"
@@ -63,20 +61,21 @@
             </Canvas>
             <Grid x:Name="gridSearchPanel" Grid.Column="0" Height="500" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ListBox Name="mainDg"  SelectedIndex="0" SelectionChanged="mainDg_SelectionChanged"
-                     HorizontalContentAlignment="Stretch"  BorderBrush="Blue">
+                <Button x:Name="btnCollapse" Grid.Row="0" Content="收缩/展开" Click="btnCollapse_Click"
+                        Padding="5 10" Height="50"/>
+                <ListBox Name="mainDg" Grid.Row="1" HorizontalContentAlignment="Stretch"  BorderBrush="Blue">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                                <Grid>
+                            <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0" Text="{Binding BPDName,Converter={StaticResource ImageNameConverter}}"
-                                   Style="{StaticResource TextBlockBasic}" FontSize="30"/>
+                                   Style="{StaticResource TextBlockBasic}" FontSize="30" Foreground="Black"/>
                                 <TextBlock Grid.Column="1" Text="{Binding FileCreationTime,StringFormat={}{0:yyyy-MM-dd hh:mm:ss}}"
                                        Style="{StaticResource TextBlockBasic}" Foreground="Blue"/>
                             </Grid>
@@ -84,8 +83,6 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Button x:Name="btnCollapse" Grid.Row="1" Content="收缩/展开" Click="btnCollapse_Click"
-                        Padding="5 10" Height="50"/>
             </Grid>
         </Grid>
 
