@@ -56,18 +56,6 @@ namespace BinaryPhaseDiagramTwo
             this.WindowState = WindowState.Minimized;
         }
 
-        //private void btnMaximum_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (this.WindowState == WindowState.Normal)
-        //    {
-        //        this.WindowState = WindowState.Maximized;
-        //    }
-        //    else
-        //    {
-        //        this.WindowState = WindowState.Normal;
-        //    }
-        //}
-
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             var elementA = txtElementA.Text.Trim();
@@ -77,6 +65,7 @@ namespace BinaryPhaseDiagramTwo
                 var result = operate.GetData(elementA, elementB);
                 mainDg.ItemsSource = result;
 
+                ClearGuideLines();
                 SetStatusBar(result.Count);
                 mainDg.SelectedIndex = 0;
                 gridSearchPanel.Height = open;
@@ -102,8 +91,9 @@ namespace BinaryPhaseDiagramTwo
             {
                 var result = operate.GetAllData();
                 mainDg.ItemsSource = result;
-                SetStatusBar(result.Count);
 
+                ClearGuideLines();
+                SetStatusBar(result.Count);
                 mainDg.SelectedIndex = 0;
                 gridSearchPanel.Height = open;
             }
@@ -152,17 +142,22 @@ namespace BinaryPhaseDiagramTwo
             }
             else
             {
-                lineHorizontal.X1 = 0;
-                lineHorizontal.Y1 = 0;
-                lineHorizontal.X2 = 0;
-                lineHorizontal.Y2 = 1;
-
-                lineVertical.X1 = 0;
-                lineVertical.Y1 = 0;
-                lineVertical.X2 = 0;
-                lineVertical.Y2 = 1;
+                ClearGuideLines();
             }
             e.Handled = true;
+        }
+
+        private void ClearGuideLines()
+        {
+            lineHorizontal.X1 = 0;
+            lineHorizontal.Y1 = 0;
+            lineHorizontal.X2 = 0;
+            lineHorizontal.Y2 = 1;
+
+            lineVertical.X1 = 0;
+            lineVertical.Y1 = 0;
+            lineVertical.X2 = 0;
+            lineVertical.Y2 = 1;
         }
 
         private void txtElementA_SelectionChanged(object sender, RoutedEventArgs e)
@@ -176,6 +171,11 @@ namespace BinaryPhaseDiagramTwo
                 btnSearch.IsEnabled = true;
             }
 
+        }
+
+        private void mainDg_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ClearGuideLines();
         }
     }
 }

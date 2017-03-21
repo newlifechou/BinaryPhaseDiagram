@@ -54,9 +54,9 @@
                        Width="{Binding ElementName=mainCanvas,Path=ActualWidth}"
                        Height="{Binding ElementName=mainCanvas,Path=ActualHeight}"
                        Source="{Binding ElementName=mainDg,Path=SelectedItem.BPDName,Converter={StaticResource ImagePathConverter}}"/>
-                <Line x:Name="lineHorizontal" X1="0" Y1="0" X2="1" Y2="1"
+                <Line x:Name="lineHorizontal" X1="0" Y1="0" X2="1" Y2="1" StrokeThickness="2"
                       Stroke="{StaticResource GuideStrokeBrush}" StrokeDashArray="{StaticResource StrokeDashDoubleCollection}"/>
-                <Line x:Name="lineVertical" X1="0" Y1="0" X2="1" Y2="1"
+                <Line x:Name="lineVertical" X1="0" Y1="0" X2="1" Y2="1" StrokeThickness="2"
                       Stroke="{StaticResource GuideStrokeBrush}" StrokeDashArray="{StaticResource StrokeDashDoubleCollection}"/>
             </Canvas>
             <Grid x:Name="gridSearchPanel" Grid.Column="0" Height="500" VerticalAlignment="Top">
@@ -66,7 +66,7 @@
                 </Grid.RowDefinitions>
                 <Button x:Name="btnCollapse" Grid.Row="0" Content="收缩/展开" Click="btnCollapse_Click"
                         Padding="5 10" Height="50"/>
-                <ListBox Name="mainDg" Grid.Row="1" HorizontalContentAlignment="Stretch"  BorderBrush="Blue">
+                <ListBox Name="mainDg" Grid.Row="1" HorizontalContentAlignment="Stretch"  BorderBrush="Blue" SelectionChanged="mainDg_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
