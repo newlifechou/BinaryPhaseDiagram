@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BinaryPhaseDiagramTwo.Views"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"  Width="300"
              d:DesignHeight="300" d:DesignWidth="1000">
     <Grid Background="LightGray">
         <Grid.RowDefinitions>

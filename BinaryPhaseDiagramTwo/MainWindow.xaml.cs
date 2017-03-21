@@ -13,8 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BinaryPhaseDiagramTwo.Views;
-
-
+using BinaryPhaseDiagramOperationLib;
 
 namespace BinaryPhaseDiagramTwo
 {
@@ -23,31 +22,25 @@ namespace BinaryPhaseDiagramTwo
     /// </summary>
     public partial class MainWindow : Window
     {
-        private SearchView _display;
-        private ResultView _search;
+        private BPDOperation operate;
         public MainWindow()
         {
             InitializeComponent();
-            InitializeVariables();
 
+            InitializeVariables();
+            GetAllBPDs();
         }
 
         private void InitializeVariables()
         {
-            _display = new SearchView();
-            _search = new ResultView();
+            string dir = "Images";
+            operate = new BPDOperation(dir);
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            NavigateTo(_display);
+
         }
-        public void NavigateTo(UserControl view)
-        {
-            if (view != null)
-            {
-                main.Content = view;
-            }
-        }
+
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -66,7 +59,7 @@ namespace BinaryPhaseDiagramTwo
 
         private void btnMaximum_Click(object sender, RoutedEventArgs e)
         {
-            if (this.WindowState==WindowState.Normal)
+            if (this.WindowState == WindowState.Normal)
             {
                 this.WindowState = WindowState.Maximized;
             }
@@ -74,6 +67,103 @@ namespace BinaryPhaseDiagramTwo
             {
                 this.WindowState = WindowState.Normal;
             }
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            var elementA = txtElementA.Text.Trim();
+            var elementB = txtElementB.Text.Trim();
+            try
+            {
+                var result= operate.GetData(elementA, elementB);
+                mainDg.ItemsSource = result;
+
+                SetStatusBar(result.Count);
+                mainDg.SelectedIndex = 0;
+                gridSearchPanel.Height = open;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnAll_Click(object sender, RoutedEventArgs e)
+        {
+
+            GetAllBPDs();
+        }
+
+        private double collapse = 50;
+        private double open = 600;
+
+        private void GetAllBPDs()
+        {
+            try
+            {
+                var result = operate.GetAllData();
+                mainDg.ItemsSource = result;
+                SetStatusBar(result.Count);
+
+                mainDg.SelectedIndex = 0;
+                gridSearchPanel.Height = open;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void SetStatusBar(int count = 0)
+        {
+            txtStatus.Text = $"共{count}个检索结果";
+        }
+        private void mainDg_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            gridSearchPanel.Height = collapse;
+        }
+
+        private void btnCollapse_Click(object sender, RoutedEventArgs e)
+        {
+            if (gridSearchPanel.Height == collapse)
+            {
+                gridSearchPanel.Height = open;
+            }
+            else
+            {
+                gridSearchPanel.Height = collapse;
+            }
+        }
+
+        private void mainCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if ((bool)chkGuidLine.IsChecked)
+            {
+                Point mousePosition = e.GetPosition(mainCanvas);
+
+                lineHorizontal.X1 = 0;
+                lineHorizontal.Y1 = mousePosition.Y;
+                lineHorizontal.X2 = mainCanvas.ActualWidth;
+                lineHorizontal.Y2 = mousePosition.Y;
+
+                lineVertical.X1 = mousePosition.X;
+                lineVertical.Y1 = 0;
+                lineVertical.X2 = mousePosition.X;
+                lineVertical.Y2 = mainCanvas.ActualHeight;
+            }
+            else
+            {
+                lineHorizontal.X1 = 0;
+                lineHorizontal.Y1 = 0;
+                lineHorizontal.X2 = 0;
+                lineHorizontal.Y2 = 1;
+
+                lineVertical.X1 = 0;
+                lineVertical.Y1 = 0;
+                lineVertical.X2 = 0;
+                lineVertical.Y2 = 1;
+            }
+            e.Handled = true;
         }
     }
 }

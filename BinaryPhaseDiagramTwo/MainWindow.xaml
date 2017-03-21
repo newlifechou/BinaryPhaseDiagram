@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BinaryPhaseDiagramTwo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" MinHeight="400" MinWidth="600"
+        Title="MainWindow" Height="600" Width="800" MinHeight="400" MinWidth="600"
         WindowStyle="None"  WindowState="Maximized"
         Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
@@ -32,9 +33,65 @@
                         Content="X" Width="30" Margin="2"/>
             </StackPanel>
         </Grid>
-        <ContentControl x:Name="main" Grid.Row="1"/>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Background="{StaticResource bg}">
-            <TextBlock Text="状态栏" Margin="2" Foreground="{StaticResource fg}"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="Orange">
+            <TextBlock Text="元素A" Style="{DynamicResource TextBlockBasic}"/>
+            <TextBox Name="txtElementA" Text="" Style="{DynamicResource TextBoxBasic}"/>
+            <TextBlock Text="元素B" Style="{DynamicResource TextBlockBasic}"/>
+            <TextBox Name="txtElementB" Text="" Style="{DynamicResource TextBoxBasic}"/>
+            <Button Name="btnSearch" Content="搜索" Style="{DynamicResource ButtonBasic}"
+                    Click="btnSearch_Click"/>
+            <Button Name="btnAll" Content="全部" Style="{DynamicResource ButtonBasic}"
+                    Click="btnAll_Click"/>
+            <CheckBox Name="chkGuidLine" Content="显示参考线"  IsChecked="True" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Canvas x:Name="mainCanvas" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="Gray"
+                    MouseLeftButtonDown="mainCanvas_MouseLeftButtonDown">
+                <Image x:Name="mainDisplay" Stretch="Uniform"
+                       Width="{Binding ElementName=mainCanvas,Path=ActualWidth}"
+                       Height="{Binding ElementName=mainCanvas,Path=ActualHeight}"
+                       Source="{Binding ElementName=mainDg,Path=SelectedItem.BPDName,Converter={StaticResource ImagePathConverter}}"/>
+                <Line x:Name="lineHorizontal" X1="0" Y1="0" X2="1" Y2="1"
+                      Stroke="{StaticResource GuideStrokeBrush}" StrokeDashArray="{StaticResource StrokeDashDoubleCollection}"/>
+                <Line x:Name="lineVertical" X1="0" Y1="0" X2="1" Y2="1"
+                      Stroke="{StaticResource GuideStrokeBrush}" StrokeDashArray="{StaticResource StrokeDashDoubleCollection}"/>
+            </Canvas>
+            <Grid x:Name="gridSearchPanel" Grid.Column="0" Height="500" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <ListBox Name="mainDg"  SelectedIndex="0" SelectionChanged="mainDg_SelectionChanged"
+                     HorizontalContentAlignment="Stretch"  BorderBrush="Blue">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                                <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding BPDName,Converter={StaticResource ImageNameConverter}}"
+                                   Style="{StaticResource TextBlockBasic}" FontSize="30"/>
+                                <TextBlock Grid.Column="1" Text="{Binding FileCreationTime,StringFormat={}{0:yyyy-MM-dd hh:mm:ss}}"
+                                       Style="{StaticResource TextBlockBasic}" Foreground="Blue"/>
+                            </Grid>
+
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button x:Name="btnCollapse" Grid.Row="1" Content="收缩/展开" Click="btnCollapse_Click"
+                        Padding="5 10" Height="50"/>
+            </Grid>
+        </Grid>
+
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Background="{StaticResource bg}">
+            <TextBlock x:Name="txtStatus" Text="状态栏" Margin="2" Foreground="{StaticResource fg}" Style="{StaticResource TextBlockBasic}"/>
         </StackPanel>
     </Grid>
 </Window>
