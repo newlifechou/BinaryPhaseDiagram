@@ -21,17 +21,21 @@
             <Button Name="btnAll" Content="All" Style="{DynamicResource ButtonBasic}"
                     Click="btnAll_Click"/>
         </StackPanel>
-        <ListBox Name="mainDg" Grid.Row="1">
+        <ListBox Name="mainDg" Grid.Row="1" HorizontalContentAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding BPDName,Converter={StaticResource ImageNameConverter}}"
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding BPDName,Converter={StaticResource ImageNameConverter}}"
                                    Style="{StaticResource TextBlockBasic}" FontSize="30"/>
-                        <TextBlock Grid.Row="1" Text="{Binding FileCreationTime}" Style="{StaticResource TextBlockBasic}" Foreground="Wheat"/>
+                            <TextBlock Text="{Binding FileCreationTime,StringFormat={}{0:yyyy-MM-dd hh:mm:ss}}"
+                                       Style="{StaticResource TextBlockBasic}" Foreground="Blue"/>
+                        </StackPanel>
+                        <Button Grid.Column="1" Content="查看相图" Style="{StaticResource ButtonBasic}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

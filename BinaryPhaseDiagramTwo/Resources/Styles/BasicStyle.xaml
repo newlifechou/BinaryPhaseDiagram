@@ -5,7 +5,7 @@
         <Setter Property="Margin" Value="5 0"/>
         <Setter Property="Padding" Value="3"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-
+        <Setter Property="HorizontalAlignment" Value="Left"/>
     </Style>
     <Style x:Key="TextBoxBasic" TargetType="{x:Type TextBox}">
         <Setter Property="Margin" Value="5"/>

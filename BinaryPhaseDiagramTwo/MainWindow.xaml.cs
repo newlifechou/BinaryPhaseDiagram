@@ -41,7 +41,7 @@ namespace BinaryPhaseDiagramTwo
         {
             NavigateTo(_display);
         }
-        private void NavigateTo(UserControl view)
+        public void NavigateTo(UserControl view)
         {
             if (view != null)
             {
