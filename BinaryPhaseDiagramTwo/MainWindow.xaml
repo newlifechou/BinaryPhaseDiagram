@@ -34,6 +34,8 @@
             </StackPanel>
         </Grid>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Background="{StaticResource toolbar}">
+            <Button x:Name="btnCollapse" Grid.Row="0" Content="收缩/展开" Click="btnCollapse_Click"
+                        Style="{StaticResource ButtonBasic}" Width="300" Margin="0"/>
             <TextBlock Text="元素A" Style="{DynamicResource TextBlockBasic}"/>
             <TextBox Name="txtElementA" Text="" Style="{DynamicResource TextBoxBasic}" SelectionChanged="txtElementA_SelectionChanged"/>
             <TextBlock Text="元素B" Style="{DynamicResource TextBlockBasic}"/>
@@ -47,7 +49,7 @@
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="320"/>
+                <ColumnDefinition Width="300"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Canvas x:Name="mainCanvas" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="Gray"
@@ -62,13 +64,7 @@
                       Stroke="{StaticResource GuideStrokeBrush}" StrokeDashArray="{StaticResource StrokeDashDoubleCollection}"/>
             </Canvas>
             <Grid x:Name="gridSearchPanel" Grid.Column="0" Height="500" VerticalAlignment="Top">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Button x:Name="btnCollapse" Grid.Row="0" Content="收缩/展开" Click="btnCollapse_Click"
-                        Padding="5 10" Height="50"/>
-                <ListBox Name="mainDg" Grid.Row="1" HorizontalContentAlignment="Stretch"  BorderBrush="Blue" SelectionChanged="mainDg_SelectionChanged">
+                <ListBox Name="mainDg" HorizontalContentAlignment="Stretch"  BorderBrush="Blue" SelectionChanged="mainDg_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>

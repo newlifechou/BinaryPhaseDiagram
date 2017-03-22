@@ -82,7 +82,7 @@ namespace BinaryPhaseDiagramTwo
             GetAllBPDs();
         }
 
-        private double collapse = 50;
+        private double collapse = 0;
         private double open = 600;
 
         private void GetAllBPDs()
