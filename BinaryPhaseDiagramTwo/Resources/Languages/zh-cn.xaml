@@ -1,10 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
-    <sys:String x:Key="AppName">二元相图软件 版本 2</sys:String>
+    <sys:String x:Key="AppName">二元相图软件 版本 2 先锋材料 designed by xs.zhou</sys:String>
     <sys:String x:Key="btnCollapse">搜索/展开</sys:String>
     <sys:String x:Key="btnSearch">检索</sys:String>
     <sys:String x:Key="btnAll">全部</sys:String>
+    <sys:String x:Key="btnOutPut">导出</sys:String>
     <sys:String x:Key="txtElementA">元素A</sys:String>
     <sys:String x:Key="txtElementB">元素B</sys:String>
     <sys:String x:Key="chkShowGuideLine">显示参考线</sys:String>

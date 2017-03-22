@@ -107,10 +107,6 @@ namespace BinaryPhaseDiagramTwo
         {
             txtStatus.Text = $"共{count}个检索结果";
         }
-        //private void mainDg_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    gridSearchPanel.Height = collapse;
-        //}
 
         private void btnCollapse_Click(object sender, RoutedEventArgs e)
         {
@@ -189,6 +185,31 @@ namespace BinaryPhaseDiagramTwo
                 this.WindowState = WindowState.Maximized;
             }
             ClearGuideLines();
+        }
+
+        private void btnOutPut_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var image = (mainDg.SelectedItem as BPDDataItem).BPDName;
+                var imagePath = System.IO.Path.Combine(Environment.CurrentDirectory, "Images", image);
+                var copyPath=System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory),image);
+                if (!System.IO.File.Exists(copyPath))
+                {
+                    System.IO.File.Copy(imagePath, copyPath);
+                    string message = "导出当前相图图片到桌面完毕";
+                    txtStatus.Text = message;
+                    MessageBox.Show(message, "导出", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    txtStatus.Text = "同名文件已经在桌面上";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
