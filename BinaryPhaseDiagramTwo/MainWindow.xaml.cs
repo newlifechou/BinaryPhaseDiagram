@@ -78,7 +78,8 @@ namespace BinaryPhaseDiagramTwo
 
         private void btnAll_Click(object sender, RoutedEventArgs e)
         {
-
+            txtElementA.Text = string.Empty;
+            txtElementB.Text = string.Empty;
             GetAllBPDs();
         }
 
@@ -176,7 +177,7 @@ namespace BinaryPhaseDiagramTwo
 
         private void btnMaximum_Click(object sender, RoutedEventArgs e)
         {
-            if (this.WindowState==WindowState.Maximized)
+            if (this.WindowState == WindowState.Maximized)
             {
                 this.WindowState = WindowState.Normal;
             }
@@ -193,7 +194,7 @@ namespace BinaryPhaseDiagramTwo
             {
                 var image = (mainDg.SelectedItem as BPDDataItem).BPDName;
                 var imagePath = System.IO.Path.Combine(Environment.CurrentDirectory, "Images", image);
-                var copyPath=System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory),image);
+                var copyPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), image);
                 if (!System.IO.File.Exists(copyPath))
                 {
                     System.IO.File.Copy(imagePath, copyPath);
