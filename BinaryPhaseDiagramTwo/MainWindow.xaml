@@ -56,7 +56,7 @@
         </Grid>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Background="{StaticResource toolbar}">
             <Button x:Name="btnCollapse" Grid.Row="0" Content="{StaticResource btnCollapse}" Click="btnCollapse_Click"
-                        Style="{StaticResource ButtonBasic}" Width="300" Margin="0"/>
+                        Style="{StaticResource ButtonBasic}" Width="300" Margin="0" VerticalAlignment="Stretch"/>
             <TextBlock Text="{StaticResource txtElementA}" Style="{DynamicResource TextBlockBasic}"/>
             <TextBox Name="txtElementA" Text="" Style="{DynamicResource TextBoxBasic}" SelectionChanged="txtElementA_SelectionChanged"/>
             <TextBlock Text="{StaticResource txtElementB}" Style="{DynamicResource TextBlockBasic}"/>
