@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BinaryPhaseDiagramTwo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" MinHeight="400" MinWidth="600"
+        Title="{StaticResource AppName}" Height="600" Width="800" MinHeight="400" MinWidth="600"
         WindowStyle="None"  WindowState="Maximized" ResizeMode="CanMinimize"
         Loaded="Window_Loaded">
     <Grid>
@@ -22,7 +22,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="二元相图软件" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold" Foreground="{StaticResource fg}"/>
+                <TextBlock Text="{StaticResource AppName}" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold" Foreground="{StaticResource fg}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
                 <Button x:Name="btnMinimum" Click="btnMinimum_Click"
@@ -34,17 +34,17 @@
             </StackPanel>
         </Grid>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Background="{StaticResource toolbar}">
-            <Button x:Name="btnCollapse" Grid.Row="0" Content="收缩/展开" Click="btnCollapse_Click"
+            <Button x:Name="btnCollapse" Grid.Row="0" Content="{StaticResource btnCollapse}" Click="btnCollapse_Click"
                         Style="{StaticResource ButtonBasic}" Width="300" Margin="0"/>
-            <TextBlock Text="元素A" Style="{DynamicResource TextBlockBasic}"/>
+            <TextBlock Text="{StaticResource txtElementA}" Style="{DynamicResource TextBlockBasic}"/>
             <TextBox Name="txtElementA" Text="" Style="{DynamicResource TextBoxBasic}" SelectionChanged="txtElementA_SelectionChanged"/>
-            <TextBlock Text="元素B" Style="{DynamicResource TextBlockBasic}"/>
+            <TextBlock Text="{StaticResource txtElementB}" Style="{DynamicResource TextBlockBasic}"/>
             <TextBox Name="txtElementB" Text="" Style="{DynamicResource TextBoxBasic}" SelectionChanged="txtElementA_SelectionChanged"/>
-            <Button Name="btnSearch" Content="搜索" Style="{DynamicResource ButtonBasic}" IsDefault="True" IsEnabled="False"
+            <Button Name="btnSearch" Content="{StaticResource btnSearch}" Style="{DynamicResource ButtonBasic}" IsDefault="True" IsEnabled="False"
                     Click="btnSearch_Click"/>
-            <Button Name="btnAll" Content="全部" Style="{DynamicResource ButtonBasic}"
+            <Button Name="btnAll" Content="{StaticResource btnAll}" Style="{DynamicResource ButtonBasic}"
                     Click="btnAll_Click"/>
-            <CheckBox Name="chkGuidLine" Content="显示参考线"  IsChecked="True" Style="{StaticResource CheckBoxBasic}"/>
+            <CheckBox Name="chkGuidLine" Content="{StaticResource chkShowGuideLine}"  IsChecked="True" Style="{StaticResource CheckBoxBasic}"/>
         </StackPanel>
 
         <Grid Grid.Row="2">
