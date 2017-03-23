@@ -125,8 +125,13 @@
         </Grid>
 
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal" Background="{StaticResource bg}">
+        <Grid Grid.Row="3"  Background="{StaticResource bg}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <TextBlock x:Name="txtStatus" Text="状态栏" Margin="2" Foreground="{StaticResource fg}" Style="{StaticResource TextBlockBasic}"/>
-        </StackPanel>
+            <TextBlock Grid.Column="1" Text="Support by .NET Framework 4.6" Style="{StaticResource TextBlockBasic}" Foreground="{StaticResource fg}" HorizontalAlignment="Right"/>
+        </Grid>
     </Grid>
 </Window>
