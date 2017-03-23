@@ -1,9 +1,0 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <SolidColorBrush x:Key="bg" Color="#1E1E1E"/>
-    <SolidColorBrush x:Key="fg" Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="bgMainArea">Gray</SolidColorBrush>
-    <SolidColorBrush x:Key="toolbar" Color="#333333"/>
-    <SolidColorBrush x:Key="GuideStrokeBrush" Color="Blue"/>
-    <DoubleCollection x:Key="StrokeDashDoubleCollection">1</DoubleCollection>
-</ResourceDictionary>

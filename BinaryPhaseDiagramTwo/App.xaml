@@ -8,7 +8,6 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources\Languages\zh-cn.xaml"/>
-                <ResourceDictionary Source="Resources\Skins\VsBlack.xaml"/>
                 <ResourceDictionary Source="Resources\Styles\BasicStyle.xaml"/>
                 <ResourceDictionary Source="Converters\MyConverter.xaml"/>
             </ResourceDictionary.MergedDictionaries>

@@ -98,9 +98,9 @@
                         </TransformGroup>
                     </Image.RenderTransform>
                 </Image>
-                <Line x:Name="lineHorizontal" X1="0" Y1="0" X2="1" Y2="1" StrokeThickness="2"
+                <Line x:Name="lineHorizontal" X1="0" Y1="0" X2="1" Y2="1" StrokeThickness="{StaticResource GuidLineWidth}"
                       Stroke="{StaticResource GuideStrokeBrush}" StrokeDashArray="{StaticResource StrokeDashDoubleCollection}"/>
-                <Line x:Name="lineVertical" X1="0" Y1="0" X2="1" Y2="1" StrokeThickness="2"
+                <Line x:Name="lineVertical" X1="0" Y1="0" X2="1" Y2="1" StrokeThickness="{StaticResource GuidLineWidth}"
                       Stroke="{StaticResource GuideStrokeBrush}" StrokeDashArray="{StaticResource StrokeDashDoubleCollection}"/>
             </Canvas>
             <Grid x:Name="gridSearchPanel" Grid.Column="0" Height="500" VerticalAlignment="Top">

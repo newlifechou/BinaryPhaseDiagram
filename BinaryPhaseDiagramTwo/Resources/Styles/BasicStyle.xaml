@@ -1,6 +1,15 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:BinaryPhaseDiagramTwo">
+                    xmlns:local="clr-namespace:BinaryPhaseDiagramTwo"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <SolidColorBrush x:Key="bg" Color="#1E1E1E"/>
+    <SolidColorBrush x:Key="fg" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="bgMainArea">Gray</SolidColorBrush>
+    <SolidColorBrush x:Key="toolbar" Color="#333333"/>
+    <SolidColorBrush x:Key="GuideStrokeBrush" Color="Blue"/>
+    <DoubleCollection x:Key="StrokeDashDoubleCollection">1</DoubleCollection>
+    <sys:Double x:Key="GuidLineWidth">3</sys:Double>
+    
     <ControlTemplate x:Key="FlatButton" TargetType="{x:Type Button}">
         <Border x:Name="border" Background="#FFDDDDDD"
                 BorderThickness="2"  BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="True"
