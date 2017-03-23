@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BinaryPhaseDiagramTwo"
         mc:Ignorable="d"
-        Title="{StaticResource AppName}" Height="600" Width="1200" MinHeight="400" MinWidth="600"
+        Title="{StaticResource AppName}" Height="800" Width="1200" MinHeight="400" MinWidth="600"
         WindowStyle="None"  WindowState="Maximized" ResizeMode="CanMinimize"
         Loaded="Window_Loaded">
     <Window.Triggers>
@@ -28,6 +28,16 @@
             </EventTrigger.Actions>
         </EventTrigger>
     </Window.Triggers>
+    <Window.Resources>
+        <Storyboard x:Key="OpenSearchPanel" >
+            <DoubleAnimation Storyboard.TargetName="gridSearchPanel" Storyboard.TargetProperty="Height"
+                                         From="0" To="600" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="CollapseSearchPanel" >
+            <DoubleAnimation Storyboard.TargetName="gridSearchPanel" Storyboard.TargetProperty="Height"
+                                         To="0" Duration="0:0:0.2"/>
+        </Storyboard>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

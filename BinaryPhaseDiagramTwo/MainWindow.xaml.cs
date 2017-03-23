@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BinaryPhaseDiagramOperationLib;
+using System.Windows.Media.Animation;
 
 namespace BinaryPhaseDiagramTwo
 {
@@ -68,7 +69,8 @@ namespace BinaryPhaseDiagramTwo
                 ClearGuideLines();
                 SetStatusBar(result.Count);
                 mainDg.SelectedIndex = 0;
-                gridSearchPanel.Height = open;
+                //gridSearchPanel.Height = open;
+                OpenSearchPanel();
             }
             catch (Exception ex)
             {
@@ -96,7 +98,8 @@ namespace BinaryPhaseDiagramTwo
                 ClearGuideLines();
                 SetStatusBar(result.Count);
                 mainDg.SelectedIndex = 0;
-                gridSearchPanel.Height = open;
+                //gridSearchPanel.Height = open;
+                OpenSearchPanel();
             }
             catch (Exception ex)
             {
@@ -113,12 +116,26 @@ namespace BinaryPhaseDiagramTwo
         {
             if (gridSearchPanel.Height == collapse)
             {
-                gridSearchPanel.Height = open;
+                OpenSearchPanel();
             }
             else
             {
-                gridSearchPanel.Height = collapse;
+                CollaspeSearchPanel();
             }
+        }
+
+        private void CollaspeSearchPanel()
+        {
+            //gridSearchPanel.Height = open;
+            var story = this.FindResource("CollapseSearchPanel") as Storyboard;
+            story.Begin();
+        }
+
+        private void OpenSearchPanel()
+        {
+            //gridSearchPanel.Height = collapse;
+            var story = this.FindResource("OpenSearchPanel") as Storyboard;
+            story.Begin();
         }
 
         private void mainCanvas_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
