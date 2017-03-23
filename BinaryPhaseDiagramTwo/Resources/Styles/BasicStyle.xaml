@@ -66,6 +66,10 @@
         <Setter Property="FontSize" Value="25"/>
         <Setter Property="Template" Value="{StaticResource FlatButton}"/>
     </Style>
+    <Style x:Key="SmallButtonBasic" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="Template" Value="{StaticResource FlatButton}"/>
+    </Style>
     <Style x:Key="DataGridBasic" TargetType="DataGrid">
         <Setter Property="AutoGenerateColumns" Value="False"/>
         <Setter Property="IsReadOnly" Value="True"/>

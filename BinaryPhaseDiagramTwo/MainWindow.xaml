@@ -56,11 +56,11 @@
                 <TextBlock Text="{StaticResource AppName}" VerticalAlignment="Center" Margin="10 0" FontWeight="Bold" Foreground="{StaticResource fg}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
-                <Button x:Name="btnMinimum" Click="btnMinimum_Click"
+                <Button x:Name="btnMinimum" Click="btnMinimum_Click" Style="{StaticResource SmallButtonBasic}"
                         Content="-" Width="30" Margin="2"/>
-                <Button x:Name="btnMaximum" Click="btnMaximum_Click"
+                <Button x:Name="btnMaximum" Click="btnMaximum_Click"  Style="{StaticResource SmallButtonBasic}"
                         Content="+" Width="30" Margin="2"/>
-                <Button x:Name="btnClose" Click="btnClose_Click"
+                <Button x:Name="btnClose" Click="btnClose_Click"  Style="{StaticResource SmallButtonBasic}"
                         Content="X" Width="30" Margin="2"/>
             </StackPanel>
         </Grid>
