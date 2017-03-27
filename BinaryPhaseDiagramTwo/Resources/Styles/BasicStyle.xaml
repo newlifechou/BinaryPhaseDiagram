@@ -4,7 +4,7 @@
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
     <SolidColorBrush x:Key="bg" Color="#1E1E1E"/>
     <SolidColorBrush x:Key="fg" Color="#FFFFFF"/>
-    <SolidColorBrush x:Key="bgMainArea">Gray</SolidColorBrush>
+    <SolidColorBrush x:Key="bgMainArea" Color="#333333"/>
     <SolidColorBrush x:Key="toolbar" Color="#333333"/>
     <SolidColorBrush x:Key="GuideStrokeBrush" Color="Blue"/>
     <DoubleCollection x:Key="StrokeDashDoubleCollection">1</DoubleCollection>
@@ -12,7 +12,7 @@
     
     <ControlTemplate x:Key="FlatButton" TargetType="{x:Type Button}">
         <Border x:Name="border" Background="#FFDDDDDD"
-                BorderThickness="2"  BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="True"
+                BorderThickness="1"  BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="True"
                 TextElement.Foreground="#000000" TextElement.FontWeight="Bold">
             <ContentPresenter x:Name="contentPresenter"
                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
